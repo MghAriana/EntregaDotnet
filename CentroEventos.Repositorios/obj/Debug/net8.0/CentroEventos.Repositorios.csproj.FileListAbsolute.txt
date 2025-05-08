@@ -1,0 +1,16 @@
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\bin\Debug\net8.0\CentroEventos.Repositorios.deps.json
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\bin\Debug\net8.0\CentroEventos.Repositorios.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\bin\Debug\net8.0\CentroEventos.Repositorios.pdb
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\bin\Debug\net8.0\CentroEventos.Aplicacion.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\bin\Debug\net8.0\CentroEventos.Aplicacion.pdb
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.csproj.AssemblyReference.cache
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.AssemblyInfoInputs.cache
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.AssemblyInfo.cs
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.sourcelink.json
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEv.AF39A6CD.Up2Date
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\refint\CentroEventos.Repositorios.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\CentroEventos.Repositorios.pdb
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Repositorios\obj\Debug\net8.0\ref\CentroEventos.Repositorios.dll
