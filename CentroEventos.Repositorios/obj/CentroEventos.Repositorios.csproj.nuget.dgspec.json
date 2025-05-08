@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+        "projectName": "CentroEventos.Repositorios",
+        "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Repositorios\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
