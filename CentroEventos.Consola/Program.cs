@@ -28,6 +28,9 @@ IRepositorioEventoDeportivo repo = new RepositorioEventoDeportivoTXT();
 //Caso de uso: Alta de Evento 
 var AgregarEvento = new EventoDeportivoAltaUseCase( new RepositorioEventoDeportivoTXT(), 
                                                     new EventoDeportivoValidador(repo));
+Persona responsable = new Persona();
+Persona participante1 = new Persona();
+Persona participante2 = new Persona();
 
 //Ejecuto el caso de uso:
 AgregarEvento.Ejecutar( new EventoDeportivo() {Id = 1, Nombre = "Zumba Power-Up", 
