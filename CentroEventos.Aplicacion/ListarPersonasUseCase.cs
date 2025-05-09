@@ -2,7 +2,10 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ListarPersonasUseCase
+public class ListarPersonasUseCase(IRepositorioPersona repopersona)
 {
-
+    /*public List<Persona> Ejecutar(){
+        //////////////
+    }*/
+    
 }
