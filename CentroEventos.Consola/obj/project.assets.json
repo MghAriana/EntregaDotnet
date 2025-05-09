@@ -1,34 +1,82 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "CentroEventos.Aplicacion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/CentroEventos.Aplicacion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CentroEventos.Aplicacion.dll": {}
+        }
+      },
+      "CentroEventos.Repositorios/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "CentroEventos.Aplicacion": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CentroEventos.Repositorios.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CentroEventos.Repositorios.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CentroEventos.Aplicacion/1.0.0": {
+      "type": "project",
+      "path": "../CentroEventos.Aplicacion/CentroEventos.Aplicacion.csproj",
+      "msbuildProject": "../CentroEventos.Aplicacion/CentroEventos.Aplicacion.csproj"
+    },
+    "CentroEventos.Repositorios/1.0.0": {
+      "type": "project",
+      "path": "../CentroEventos.Repositorios/CentroEventos.Repositorios.csproj",
+      "msbuildProject": "../CentroEventos.Repositorios/CentroEventos.Repositorios.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "CentroEventos.Aplicacion >= 1.0.0",
+      "CentroEventos.Repositorios >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\ignac\\.nuget\\packages\\": {}
+    "C:\\Users\\sheil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
       "projectName": "CentroEventos.Consola",
-      "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-      "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
+      "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+      "packagesPath": "C:\\Users\\sheil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sheil\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
+            },
+            "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -40,7 +88,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -56,12 +105,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.15, 8.0.15]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.15, 8.0.15]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.15, 8.0.15]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.15, 8.0.15]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

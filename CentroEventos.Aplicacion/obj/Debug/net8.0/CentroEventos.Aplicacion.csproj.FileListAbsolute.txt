@@ -1,0 +1,12 @@
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\bin\Debug\net8.0\CentroEventos.Aplicacion.deps.json
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\bin\Debug\net8.0\CentroEventos.Aplicacion.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\bin\Debug\net8.0\CentroEventos.Aplicacion.pdb
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.AssemblyInfoInputs.cache
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.AssemblyInfo.cs
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.sourcelink.json
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\refint\CentroEventos.Aplicacion.dll
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\CentroEventos.Aplicacion.pdb
+C:\Users\sheil\Desktop\proyectosDotnet\EntregaDotnet\CentroEventos.Aplicacion\obj\Debug\net8.0\ref\CentroEventos.Aplicacion.dll

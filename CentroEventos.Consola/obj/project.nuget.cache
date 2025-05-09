@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eXoJbfI2yhE=",
+  "dgSpecHash": "Pn/ivL/RaxQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.15\\microsoft.netcore.app.host.win-x64.8.0.15.nupkg.sha512"
+  ],
   "logs": []
 }
