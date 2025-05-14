@@ -10,5 +10,6 @@ public interface IRepositorioPersona
     
     public bool existeDni(string dni);
 
+    public bool existeID(int id);
 
 }

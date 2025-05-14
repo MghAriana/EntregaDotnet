@@ -12,7 +12,7 @@ public class RepositorioIDTXT : IRepositorioID
 
         using var sr = new StreamReader(_archivo, true); 
         int id = 0;
-        string linea = sr.ReadLine(); //Leo la línea    
+        string? linea = sr.ReadLine(); //Leo la línea    
         sr.Dispose();
         Console.WriteLine("Linea leida: " + linea);
         

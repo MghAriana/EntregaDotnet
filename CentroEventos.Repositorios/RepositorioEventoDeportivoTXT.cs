@@ -3,12 +3,13 @@ using System;
 namespace CentroEventos.Repositorios;
 using CentroEventos.Aplicacion;
 
-public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
+public class RepositorioEventoDeportivoTXT(IRepositorioPersona repoP): IRepositorioEventoDeportivo
 {
-    readonly string _archivo = "eventos_deportivos.csv";
+    readonly string _archivoED = "eventos_deportivos.txt";
     public void AgregarEvento(EventoDeportivo evento)
     {
-        using var sw = new StreamWriter(_archivo, true);
+        using var sw = new StreamWriter(_archivoED, true);
+        // Genero un vector de string ["id","nombre","descripcion","fechaHoraInicio","duracion","cupo","responsabe"]
         string[] linea = {  $"{evento.Id}", 
                             $"{evento.Nombre}", 
                             $"{evento.Descripcion}", 
@@ -16,27 +17,16 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
                             $"{evento.DuracionHoras}",
                             $"{evento.CupoMaximo}",
                             $"{evento.ResponsableId}" };
-        sw.WriteLine(string.Join(",",linea)); //Preguntar si se puede hacer esto. 
+        sw.WriteLine(string.Join(",",linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
+        sw.Dispose();
     }
 
     public void BajarEvento(int id){
         //implementar
     }
 
-    public bool ExisteResponsable(int responsableId)
-    {
-        bool existe = false;
-        using var sr = new StreamReader(_archivo, true);
-        string? linea;
-        while((linea = sr.ReadLine()) != null && !existe)
-        {
-            string[] campo = linea.Split(','); 
-            // campos = [ Id, Nombre, Descripcion, FechaHoraInicio, DuracionHoras, CupoMaximo, ResponsableId ]
-            if(int.Parse(campo[6]) == responsableId) {
-                existe = true;
-            }   
-        }
-        sr.Dispose();
-        return existe;
+    public bool ExisteResponsable(int responsableId){
+        return repoP.existeID(responsableId); 
     }
+
 }

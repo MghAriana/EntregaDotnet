@@ -22,21 +22,25 @@ ListarAsistenciaAEventoUseCase para obtener la lista de todos los asistentes a u
 
 Console.WriteLine(System.Environment.Version);
 
-//Configuro las dependencias:
-IRepositorioEventoDeportivo repoED = new RepositorioEventoDeportivoTXT();
+IRepositorioPersona repoP = new RepositorioPersonaTXT();
 IRepositorioID repoID = new RepositorioIDTXT();
 
+var AgregarPersona = new PersonaAltaUseCase(repoP, new PersonaValidador(repoP));
+AgregarPersona.Ejecutar(new Persona("38807484","Pisco","Sheila","sheilapisco@gmail.com","2976210323",repoID));
+
+//Configuro las dependencias:
+IRepositorioEventoDeportivo repoED = new RepositorioEventoDeportivoTXT(repoP);
 //Caso de uso: Alta de Evento 
-var AgregarEvento = new EventoDeportivoAltaUseCase( new RepositorioEventoDeportivoTXT(), 
+var AgregarEvento = new EventoDeportivoAltaUseCase( repoED, 
                                                     new EventoDeportivoValidador(repoED));
 
 Console.WriteLine("Hasta acá bien");
-EventoDeportivo ev = new EventoDeportivo(repoID);
+DateTime fecha = new DateTime(2025,5,15,15,5,6,325);
 
 //Ejecuto el caso de uso:
 AgregarEvento.Ejecutar( new EventoDeportivo(repoID) {Nombre = "Zumba Power-Up", 
                         Descripcion = "Dejá de ser una pelotuda, vení a moverte!", 
-                        FechaHoraInicio = System.DateTime.Now, DuracionHoras = 1, 
+                        FechaHoraInicio = fecha, DuracionHoras = 1, 
                         CupoMaximo = 25, ResponsableId = 1 });
 
 Console.WriteLine("funciona");
