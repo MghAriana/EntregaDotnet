@@ -39,12 +39,4 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
         sr.Dispose();
         return existe;
     }
-
-    public List<EventoDeportivo> ListarEventosConCupo(){
-
-        List<EventoDeportivo> lista = new List<EventoDeportivo>();
-        //implementar
-        return lista;
-
-    }
 }
