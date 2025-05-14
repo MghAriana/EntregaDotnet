@@ -23,14 +23,20 @@ ListarAsistenciaAEventoUseCase para obtener la lista de todos los asistentes a u
 Console.WriteLine(System.Environment.Version);
 
 //Configuro las dependencias:
-IRepositorioEventoDeportivo repo = new RepositorioEventoDeportivoTXT();
+IRepositorioEventoDeportivo repoED = new RepositorioEventoDeportivoTXT();
+IRepositorioID repoID = new RepositorioIDTXT();
 
 //Caso de uso: Alta de Evento 
 var AgregarEvento = new EventoDeportivoAltaUseCase( new RepositorioEventoDeportivoTXT(), 
-                                                    new EventoDeportivoValidador(repo));
+                                                    new EventoDeportivoValidador(repoED));
+
+Console.WriteLine("Hasta acá bien");
+EventoDeportivo ev = new EventoDeportivo(repoID);
 
 //Ejecuto el caso de uso:
-AgregarEvento.Ejecutar( new EventoDeportivo() {Id = 1, Nombre = "Zumba Power-Up", 
+AgregarEvento.Ejecutar( new EventoDeportivo(repoID) {Nombre = "Zumba Power-Up", 
                         Descripcion = "Dejá de ser una pelotuda, vení a moverte!", 
                         FechaHoraInicio = System.DateTime.Now, DuracionHoras = 1, 
                         CupoMaximo = 25, ResponsableId = 1 });
+
+Console.WriteLine("funciona");

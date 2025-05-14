@@ -2,9 +2,9 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class EventoDeportivo
+public class EventoDeportivo (IRepositorioID repo)
 {
-    private int _Id;//único, debe ser autoincremental gestionado por el repositorio) 
+    private int _Id = repo.GenerarId("EventoDeportivo"); // único, debe ser autoincremental gestionado por el repositorio) 
     private string? _Nombre;// ej: "Clase de Spinning Avanzado", "Partido final de Vóley"
     private string? _Descripcion;
     private DateTime _FechaHoraInicio; // DateTime - Fecha y hora exactas de inicio del evento
@@ -14,7 +14,6 @@ public class EventoDeportivo
 
     public int Id{
         get { return _Id; }
-        set { _Id = value; }
     }
 
     public string? Nombre {
