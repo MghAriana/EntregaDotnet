@@ -16,6 +16,11 @@ public class RepositorioIDTXT : IRepositorioID
         sr.Dispose();
         Console.WriteLine("Linea leida: " + linea);
         
+        if(string.IsNullOrEmpty(linea))
+        {
+            Console.WriteLine("El archivo está vacío. Se generará el id 1.");
+            linea = "0,0,0"; // Si el archivo está vacío, inicializo los ids en 0
+        }
         string[] ids = linea.Split(','); //Creo un vector de string [ "id_persona" | "id_evento" | "id_reserva" ]
 
         if(nom_clase == "Persona")

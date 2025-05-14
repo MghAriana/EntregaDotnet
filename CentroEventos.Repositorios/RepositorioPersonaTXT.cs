@@ -16,6 +16,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                         $"{persona.Telefono}"
         };
         sw.WriteLine(string.Join(",", linea));
+        Console.WriteLine("Persona agregada: " + string.Join(",", linea));
         sw.Dispose();//--------> para liberar recursos 
        
     }
@@ -31,15 +32,19 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public bool existeID(int id)
     {
         bool existe = false;
+        Console.WriteLine("Buscando id " + id + " en el archivo " + _nomArch);
         using var sr = new StreamReader(_nomArch, true);
-        string? linea;
-        while((linea = sr.ReadLine()) != null && !existe)
-        {
+        string? linea = sr.ReadLine();
+        Console.WriteLine("Leyendo linea: " + linea);
+        while(linea != null && !existe)
+        {   
+            
             string[] campo = linea.Split(','); 
             // campos = [ Id, DNI, Nombre, Apellido, Email, Telefono ]
-            if(int.Parse(campo[1]) == id) {
+            if(int.Parse(campo[0]) == id) {
                 existe = true;
             }   
+            linea = sr.ReadLine(); // Leo la siguiente línea
         }
         sr.Dispose();
         return existe;

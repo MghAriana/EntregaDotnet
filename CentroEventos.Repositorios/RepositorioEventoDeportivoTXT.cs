@@ -3,7 +3,7 @@ using System;
 namespace CentroEventos.Repositorios;
 using CentroEventos.Aplicacion;
 
-public class RepositorioEventoDeportivoTXT(IRepositorioPersona repoP): IRepositorioEventoDeportivo
+public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
 {
     readonly string _archivoED = "eventos_deportivos.txt";
     public void AgregarEvento(EventoDeportivo evento)
@@ -20,13 +20,7 @@ public class RepositorioEventoDeportivoTXT(IRepositorioPersona repoP): IReposito
         sw.WriteLine(string.Join(",",linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
         sw.Dispose();
     }
-
     public void BajarEvento(int id){
         //implementar
     }
-
-    public bool ExisteResponsable(int responsableId){
-        return repoP.existeID(responsableId); 
-    }
-
 }
