@@ -13,8 +13,6 @@ public class Persona {
     private string? _email;
     private string? _telefono;
 
-    public Persona(){}
-
     public Persona(int id, string dni ,string ape,string nom, string email , string tel)
     {
         _id= id;
