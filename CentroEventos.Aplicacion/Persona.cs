@@ -11,7 +11,7 @@ public class Persona {
     private string? _dni;
     private string? _nombre;
     private string? _apellido;
-    private string? _email;
+    private string? _email;//public Email {get;set;}--->pasa a ser una propiedad 
     private string? _telefono;
 
 
@@ -21,7 +21,7 @@ public class Persona {
         this._dni = dni; ///consulta a IrepositorioPersona
         this._nombre = nom;
         this._apellido =ape;
-        this._email = email; //consulta  a Irepositorio
+        this._email = email; 
         this._telefono = tel;
     }
 
@@ -44,6 +44,10 @@ public class Persona {
     public string? Email{
         get { return this._email;}
         set{_email = value;}
+    }
+    public string? Telefono{
+        get{ return  _telefono;}
+        set{}
     }
 
     public string toString(){

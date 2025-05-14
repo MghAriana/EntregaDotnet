@@ -8,13 +8,20 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public void agregarPersona(Persona persona)
     {
         using var sw = new StreamWriter(_nomArch, true);
-        sw.WriteLine(persona.Id);
-        sw.WriteLine(persona.Nombre); //--->con el get o con _nombre
-        sw.WriteLine(persona.Apellido);
-        sw.WriteLine(persona.Email);
+        string[] linea= { $"{persona.Id}" , 
+                        $"{persona.Dni}",
+                        $"{persona.Nombre}",
+                        $"{persona.Apellido}",
+                        $"{persona.Email}",
+                        $"{persona.Telefono}"
+        };
+        sw.WriteLine(string.Join(",", linea));
+        sw.Dispose();//--------> para liberar recursos 
+       
     }
     public List<Persona> ListarPersonas(){
         List<Persona> lista = new List<Persona>();
+        
         return lista;
     }
     public bool existeDni(string dni){
