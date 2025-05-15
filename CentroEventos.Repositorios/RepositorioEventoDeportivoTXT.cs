@@ -20,7 +20,12 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
         sw.WriteLine(string.Join(",",linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
         sw.Dispose();
     }
-    public void BajarEvento(int id){
-        //implementar
+    public void BajarEvento(int id) 
+    {
+        throw new NotImplementedException();
+    }
+    public void ModificarEvento(int id)
+    {
+        throw new NotImplementedException();
     }
 }
