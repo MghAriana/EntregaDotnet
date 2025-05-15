@@ -30,16 +30,14 @@ IRepositorioID repoID = new RepositorioIDTXT();
 // Se crea una persona y se le asigna un id autogenerado por el repositorio
 var AgregarPersona = new PersonaAltaUseCase(repoP, new PersonaValidador(repoP));
 //Ejecuto el caso de uso:
-AgregarPersona.Ejecutar(new Persona("38807484","Pisco","Sheila","sheilapisco@gmail.com","2976210323",repoID));
+AgregarPersona.Ejecutar( new Persona("38807484","Pisco","Sheila","sheilapisco@gmail.com","2976210323",repoID) );
 
 // Caso de uso: Alta de Evento Deportivo 
 // Se crea un evento y se le asigna un id autogenerado por el repositorio
 var AgregarEvento = new EventoDeportivoAltaUseCase( repoED, new EventoDeportivoValidador(repoP));
 
 //Ejecuto el caso de uso:
-AgregarEvento.Ejecutar( new EventoDeportivo(repoID) {Nombre = "Zumba Power-Up", 
-                        Descripcion = "Dejá de ser una pelotuda, vení a moverte!", 
-                        FechaHoraInicio = new DateTime(2025,5,15,15,5,6,325), DuracionHoras = 1, 
-                        CupoMaximo = 25, ResponsableId = 1 });
+AgregarEvento.Ejecutar( new EventoDeportivo(repoID,"Zumba Power-Up","Dejá de ser una pelotuda, vení a moverte!",
+                        new DateTime(2025,5,15,15,5,6,325), 1, 25, 1) );
 
 Console.WriteLine("funciona");

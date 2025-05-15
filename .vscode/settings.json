@@ -1,0 +1,5 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "github.copilot.advanced": {}
+}

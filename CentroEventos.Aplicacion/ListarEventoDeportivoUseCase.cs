@@ -2,7 +2,9 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ListarCentroDeportivoUseCase
+public class ListarEventoDeportivoUseCase(IRepositorioEventoDeportivo repoED)
 {
-
+    public List<EventoDeportivo> Ejecutar(){
+       return repoED.ListarEventos();
+    }
 }
