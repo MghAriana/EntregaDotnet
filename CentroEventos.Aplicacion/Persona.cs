@@ -1,7 +1,59 @@
 using System;
+using System.Data.Common;
+using System.Dynamic;
+
 
 namespace CentroEventos.Aplicacion;
 
-public class Persona{
-    
+
+public class Persona {
+    private int _id;
+    private string? _dni;
+    private string? _nombre;
+    private string? _apellido;
+    private string? _email;//public Email {get;set;}--->pasa a ser una propiedad 
+    private string? _telefono;
+
+
+    public Persona(string dni ,string ape,string nom, string email , string tel, IRepositorioID repo)
+    {
+        this._id = repo.GenerarId("Persona");
+        this._dni = dni; ///consulta a IrepositorioPersona
+        this._nombre = nom;
+        this._apellido =ape;
+        this._email = email; 
+        this._telefono = tel;
+    }
+
+    public int Id{
+        get { return _id; }
+        set { _id = value; }
+    }
+    public string? Dni{
+        get{return _dni;}
+        set{_dni = value;}
+    }
+    public string? Nombre{
+        get{return _nombre;}
+        set{ _nombre = value;}
+    }
+    public string? Apellido{
+        get{return _apellido;}
+        set{_apellido = value;}
+    }
+    public string? Email{
+        get { return this._email;}
+        set{_email = value;}
+    }
+    public string? Telefono{
+        get{ return  _telefono;}
+        set{}
+    }
+
+    public string toString(){
+        string aux="";
+        aux+= $"Persona: {this._id} , \ndni: {this._dni} , \nnombre {this._nombre} , \napellido : {this._apellido} \nemail: {this._email} \ntelefono: {this._telefono}";
+        return aux;
+    }
+
 }

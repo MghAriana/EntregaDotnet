@@ -19,21 +19,34 @@ Además, debe implementarse ListarEventosConCupoDisponibleUseCase
 para obtener un listado de los eventos futuros donde aún existen cupos disponibles y
 ListarAsistenciaAEventoUseCase para obtener la lista de todos los asistentes a un evento pasado.
 */
-
 Console.WriteLine(System.Environment.Version);
 
 //Configuro las dependencias:
-IRepositorioEventoDeportivo repo = new RepositorioEventoDeportivoTXT();
+IRepositorioPersona repoP = new RepositorioPersonaTXT();
+IRepositorioEventoDeportivo repoED = new RepositorioEventoDeportivoTXT();
+IRepositorioID repoID = new RepositorioIDTXT();
 
+<<<<<<< HEAD
 //Caso de uso: Alta de Evento 
 var AgregarEvento = new EventoDeportivoAltaUseCase( new RepositorioEventoDeportivoTXT(), 
                                                     new EventoDeportivoValidador(repo));
 Persona responsable = new Persona();
 Persona participante1 = new Persona();
 Persona participante2 = new Persona();
+=======
+// Caso de uso: Alta de Persona 
+// Se crea una persona y se le asigna un id autogenerado por el repositorio
+var AgregarPersona = new PersonaAltaUseCase(repoP, new PersonaValidador(repoP));
+//Ejecuto el caso de uso:
+AgregarPersona.Ejecutar( new Persona("38807484","Pisco","Sheila","sheilapisco@gmail.com","2976210323",repoID) );
+
+// Caso de uso: Alta de Evento Deportivo 
+// Se crea un evento y se le asigna un id autogenerado por el repositorio
+var AgregarEvento = new EventoDeportivoAltaUseCase( repoED, new EventoDeportivoValidador(repoP));
+>>>>>>> main
 
 //Ejecuto el caso de uso:
-AgregarEvento.Ejecutar( new EventoDeportivo() {Id = 1, Nombre = "Zumba Power-Up", 
-                        Descripcion = "Dejá de ser una pelotuda, vení a moverte!", 
-                        FechaHoraInicio = System.DateTime.Now, DuracionHoras = 1, 
-                        CupoMaximo = 25, ResponsableId = 1 });
+AgregarEvento.Ejecutar( new EventoDeportivo(repoID,"Zumba Power-Up","Dejá de ser una pelotuda, vení a moverte!",
+                        new DateTime(2025,5,15,15,5,6,325), 1, 25, 1) );
+
+Console.WriteLine("funciona");

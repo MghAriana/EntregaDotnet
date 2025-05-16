@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CentroEventos.Consola")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2d134025d2df598e56d3c180b95d8e1f935552f")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26b59e366ed358861050740d802db2582332f463")]
+>>>>>>> main
 [assembly: System.Reflection.AssemblyProductAttribute("CentroEventos.Consola")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CentroEventos.Consola")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

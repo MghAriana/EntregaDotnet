@@ -2,7 +2,7 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class EventoDeportivoValidador(IRepositorioEventoDeportivo repo)
+public class EventoDeportivoValidador(IRepositorioPersona repo)
 {
     public bool Validar(EventoDeportivo eventoDeportivo, out string mensajeError)
     {
@@ -27,7 +27,7 @@ public class EventoDeportivoValidador(IRepositorioEventoDeportivo repo)
         {
             mensajeError += "Duración del evento inválida. \n";
         }
-        if(!repo.ExistePersona(eventoDeportivo.ResponsableId)){
+        if(!repo.existeID(eventoDeportivo.ResponsableId)){
             mensajeError += "Responsable del evento inválido.\n";
         }
         return (mensajeError == "");
