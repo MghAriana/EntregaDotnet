@@ -1,4 +1,5 @@
-﻿using CentroEventos.Aplicacion;
+﻿using System.Reflection.PortableExecutable;
+using CentroEventos.Aplicacion;
 using CentroEventos.Repositorios;
 /*Reglas de Negocio
 ● Un EventoDeportivo no puede tener más Reservas que su CupoMaximo.
@@ -25,13 +26,17 @@ Console.WriteLine(System.Environment.Version);
 //Configuro las dependencias:
 IRepositorioEventoDeportivo repoED = new RepositorioEventoDeportivoTXT();
 IRepositorioID repoID = new RepositorioIDTXT();
+IRepositorioPersona rPersona = new RepositorioPersonaTXT();
 
 //Caso de uso: Alta de Evento 
 var AgregarEvento = new EventoDeportivoAltaUseCase( new RepositorioEventoDeportivoTXT(), 
                                                     new EventoDeportivoValidador(repoED));
 
+var agregarPersona = new PersonaAltaUseCase(new RepositorioPersonaTXT(), new PersonaValidador(rPersona));
+
 Console.WriteLine("Hasta acá bien");
 EventoDeportivo ev = new EventoDeportivo(repoID);
+Persona per = new Persona(1, "22232", "Perez", "Luciana", "lpz@gmail.com", "778559");
 
 //Ejecuto el caso de uso:
 AgregarEvento.Ejecutar( new EventoDeportivo(repoID) {Nombre = "Zumba Power-Up", 
