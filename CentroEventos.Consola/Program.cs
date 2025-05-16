@@ -1,4 +1,5 @@
-﻿using CentroEventos.Aplicacion;
+﻿using System.Reflection.PortableExecutable;
+using CentroEventos.Aplicacion;
 using CentroEventos.Repositorios;
 /*Reglas de Negocio
 ● Un EventoDeportivo no puede tener más Reservas que su CupoMaximo.
@@ -25,6 +26,7 @@ IRepositorioPersona repoP = new RepositorioPersonaTXT();
 IRepositorioReserva repoR = new RepositorioReservaTXT();
 IRepositorioEventoDeportivo repoE = new RepositorioEventoDeportivoTXT();
 IRepositorioID repoID = new RepositorioIDTXT();
+IRepositorioPersona rPersona = new RepositorioPersonaTXT();
 
 // --------------------------> Casos de uso: Persona <--------------------------
 var AgregarPersona = new PersonaAltaUseCase(repoP, new PersonaValidador(repoP));

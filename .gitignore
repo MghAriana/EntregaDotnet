@@ -1,0 +1,7 @@
+bin/
+obj/
+
+*.cache
+*.Assembly.cs
+*.dll
+*.pdb
