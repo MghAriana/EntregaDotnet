@@ -5,6 +5,7 @@ using System.Dynamic;
 
 namespace CentroEventos.Aplicacion;
 
+
 public class Persona {
     private int _id;
     private string? _dni;
@@ -13,9 +14,10 @@ public class Persona {
     private string? _email;//public Email {get;set;}--->pasa a ser una propiedad 
     private string? _telefono;
 
-    public Persona(int id, string dni ,string ape,string nom, string email , string tel)
+
+    public Persona(string dni ,string ape,string nom, string email , string tel, IRepositorioID repo)
     {
-        _id= id;
+        this._id = repo.GenerarId("Persona");
         this._dni = dni; ///consulta a IrepositorioPersona
         this._nombre = nom;
         this._apellido =ape;

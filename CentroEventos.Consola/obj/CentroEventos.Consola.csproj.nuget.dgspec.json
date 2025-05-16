@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
+        "projectName": "CentroEventos.Aplicacion",
+        "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\Amorsito\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -55,6 +72,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -70,6 +88,23 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+        "projectName": "CentroEventos.Consola",
+        "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+        "packagesPath": "C:\\Users\\Amorsito\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -78,11 +113,19 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
                 "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
               },
               "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
                 "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
+=======
+              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
+              },
+              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
               }
             }
           }
@@ -117,6 +160,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -132,6 +176,23 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+        "projectName": "CentroEventos.Repositorios",
+        "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\Amorsito\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -140,8 +201,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
                 "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
+=======
+              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
               }
             }
           }
@@ -176,7 +242,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+>>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
         }
       }
     }

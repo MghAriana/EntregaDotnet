@@ -16,6 +16,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                         $"{persona.Telefono}"
         };
         sw.WriteLine(string.Join(",", linea));
+        Console.WriteLine("Persona agregada: " + string.Join(",", linea));
         sw.Dispose();//--------> para liberar recursos 
        
     }

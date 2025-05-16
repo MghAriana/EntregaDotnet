@@ -35,6 +35,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         }
+        }
       },
       "frameworks": {
         "net8.0": {
