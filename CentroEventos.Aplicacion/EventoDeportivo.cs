@@ -55,8 +55,12 @@ public class EventoDeportivo
         set { _CupoMaximo = value; }
     }
 
-    public int ResponsableId {
+    public int ResponsableId { 
         get { return _ResponsableId; }
         set { _ResponsableId = value; }
+    }
+
+    public override string ToString(){
+        return $" Evento {Id} - '{Nombre}': \n Descripcion: {Descripcion} - Fecha y Hora: {FechaHoraInicio.ToString()} ";
     }
 }
