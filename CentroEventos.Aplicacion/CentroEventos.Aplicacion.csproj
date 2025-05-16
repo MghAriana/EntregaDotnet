@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include=".config\dotnet-tools.json" />
+  </ItemGroup>
+
 </Project>
