@@ -2,7 +2,7 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ReservasAltaUseCase
+public class ReservasAltaUseCase(IRepositorioReserva repoReserva, ReservasValidador validacion)
 {
 
 }
