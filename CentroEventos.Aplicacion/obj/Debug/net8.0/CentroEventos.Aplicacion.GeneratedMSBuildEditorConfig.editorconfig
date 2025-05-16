@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CentroEventos.Aplicacion
-build_property.ProjectDir = C:\Users\Amorsito\Desktop\TP\EntregaDotnet\CentroEventos.Aplicacion\
+build_property.ProjectDir = C:\Users\ignac\Desktop\EntregaDotnet\CentroEventos\CentroEventos.Aplicacion\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

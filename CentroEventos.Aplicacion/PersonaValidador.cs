@@ -6,14 +6,24 @@ public class PersonaValidador(IRepositorioPersona ipersona){
     
     public bool Validador(Persona Persona, out string mensajeError){
         mensajeError ="";
-        if(string.IsNullOrWhiteSpace(Persona.Nombre)){
+        
+        if (string.IsNullOrWhiteSpace(Persona.Nombre))
+        {
             mensajeError = "debe proporcionar un nombre valido";
         }
         if (string.IsNullOrWhiteSpace(Persona.Apellido)){
             mensajeError = "debe proporcionar un apellido valido\n";
         }
-        if( string.IsNullOrWhiteSpace(Persona.Email)){
-            mensajeError= "el campo email no puede estar vacio\n";
+        if (string.IsNullOrWhiteSpace(Persona.Email))
+        {
+            mensajeError = "el campo email no puede estar vacio\n";
+        }
+        else
+        {
+            if (ipersona.existeEmail(Persona.Email))
+            {
+                mensajeError = "el email ingresado ya esta asociado a una cuenta\n";
+            }
         }
         
        if(string.IsNullOrWhiteSpace(Persona.Dni)){
