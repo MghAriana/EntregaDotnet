@@ -49,8 +49,8 @@ var ListarEventos = new ListarEventoDeportivoUseCase(repoE);
 var EliminarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
 var ModificarEvento = new EventoDeportivoModificacionUseCase();
 // Alta:
-AgregarEvento.Ejecutar( new EventoDeportivo() );
-AgregarEvento.Ejecutar( new EventoDeportivo() );
+AgregarEvento.Ejecutar();
+AgregarEvento.Ejecutar();
 // Listar:
 List <EventoDeportivo> lista_eventos = ListarEventos.Ejecutar();
 foreach(EventoDeportivo evento in lista_eventos)
@@ -58,7 +58,7 @@ foreach(EventoDeportivo evento in lista_eventos)
     Console.WriteLine(evento.ToString());
 }
 // Baja:
-EliminarEvento.Ejecutar(7); 
+EliminarEvento.Ejecutar(7);
 // Modificar:
 
 // --------------------------> Casos de uso: Reserva <--------------------------
