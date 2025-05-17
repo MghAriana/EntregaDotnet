@@ -2,7 +2,7 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class PersonaModificaciones
+public class PersonaModificacionesUseCase
 {
 
 }
