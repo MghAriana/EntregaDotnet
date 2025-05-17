@@ -25,7 +25,7 @@ public class EventoDeportivoValidador(IRepositorioPersona repo)
         }
         if(eventoDeportivo.DuracionHoras <= 0)
         {
-            mensajeError += "La duración del evento no es válida.\n";
+            mensajeError += "La duración del evento no es válida. \n";
         }
         if(eventoDeportivo.ResponsableId <= 0 || !repo.existeId(eventoDeportivo.ResponsableId)){
             mensajeError += "El Id del responsable del evento no es válido.\n";
