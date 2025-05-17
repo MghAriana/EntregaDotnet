@@ -9,26 +9,26 @@ public class EventoDeportivoValidador(IRepositorioPersona repo)
         mensajeError = "";
         if(string.IsNullOrWhiteSpace(eventoDeportivo.Nombre))
         {
-            mensajeError = "Nombre del evento inválido.\n";
+            mensajeError = "El nombre del evento no es válido.\n";
         }
         if(string.IsNullOrWhiteSpace(eventoDeportivo.Descripcion))
         {
-            mensajeError += "Descrición del evento inválida.\n";
+            mensajeError += "La descrición del evento no es válida.\n";
         }
-        if(eventoDeportivo.FechaHoraInicio < DateTime.Now)
+        if(eventoDeportivo.FechaHoraInicio == DateTime.MinValue || eventoDeportivo.FechaHoraInicio < DateTime.Now)
         {
-            mensajeError += "Fecha y hora de inicio inválida.\n"; 
+            mensajeError += "La fecha/hora de inicio del evento no es válida.\n"; 
         }
         if(eventoDeportivo.CupoMaximo <= 0)
         {
-            mensajeError += "Cupo máximo del evento inválido.\n";
+            mensajeError += "El cupo máximo del evento no es válido.\n";
         }
         if(eventoDeportivo.DuracionHoras <= 0)
         {
-            mensajeError += "Duración del evento inválida. \n";
+            mensajeError += "La duración del evento no es válida.\n";
         }
-        if(!repo.existeId(eventoDeportivo.ResponsableId)){
-            mensajeError += "Responsable del evento inválido.\n";
+        if(eventoDeportivo.ResponsableId <= 0 || !repo.existeId(eventoDeportivo.ResponsableId)){
+            mensajeError += "El Id del responsable del evento no es válido.\n";
         }
         return (mensajeError == "");
     }

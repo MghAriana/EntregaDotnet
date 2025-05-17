@@ -44,15 +44,13 @@ List <Persona> lista_personas = ListarPersonas.Ejecutar();
 //Modificar:
 
 // ----------------------> Casos de uso: EventoDeportivo <----------------------
-var AgregarEvento = new EventoDeportivoAltaUseCase( repoE, new EventoDeportivoValidador(repoP));
+var AgregarEvento = new EventoDeportivoAltaUseCase( repoE, new EventoDeportivoValidador(repoP), repoID);
 var ListarEventos = new ListarEventoDeportivoUseCase(repoE);
 var EliminarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
 var ModificarEvento = new EventoDeportivoModificacionUseCase();
 // Alta:
-AgregarEvento.Ejecutar( new EventoDeportivo(repoID,"Zumba Power-Up","Dejá de ser una pelotuda y vení a moverte!",
-                        new DateTime(2025,5,25,15,5,6,325), 1, 25, 3) );
-AgregarEvento.Ejecutar( new EventoDeportivo(repoID,"Salto Olímpico","Sin comentarios",
-                        new DateTime(2025,6,15,15,5,6,325), 2.5, 10, 2) );
+AgregarEvento.Ejecutar( new EventoDeportivo() );
+AgregarEvento.Ejecutar( new EventoDeportivo() );
 // Listar:
 List <EventoDeportivo> lista_eventos = ListarEventos.Ejecutar();
 foreach(EventoDeportivo evento in lista_eventos)
