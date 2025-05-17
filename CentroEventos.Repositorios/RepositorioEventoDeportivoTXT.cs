@@ -59,15 +59,7 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
         while(!string.IsNullOrEmpty(linea))
         { 
             string[] c = linea.Split(","); 
-            EventoDeportivo evento = new EventoDeportivo();
-            evento.Id = int.Parse(c[0]);
-            evento.Nombre = c[1];
-            evento.Descripcion = c[2];
-            evento.FechaHoraInicio = DateTime.Parse(c[3]);
-            evento.DuracionHoras = double.Parse(c[4]);
-            evento.CupoMaximo = int.Parse(c[5]);
-            evento.ResponsableId = int.Parse(c[6]);
-
+            EventoDeportivo evento = new EventoDeportivo(int.Parse(c[0]),c[1],c[2],DateTime.Parse(c[3]),double.Parse(c[4]),int.Parse(c[5]),int.Parse(c[6]));
             lista.Add(evento);
             linea = sr.ReadLine();
         }
