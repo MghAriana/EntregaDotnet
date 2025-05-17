@@ -8,6 +8,6 @@ public interface IRepositorioReserva
     void RealizarBaja (int idReserva);
     public bool ExistePersona(int IdResponsable);
     public bool ExisteCupo(int idReserva);
-    public bool existeReservaEvento(int idEvento);
+    public bool ExistenReservas(int idEvento);
     public List<EventoDeportivo> ListarEventosConCupo();
 }
