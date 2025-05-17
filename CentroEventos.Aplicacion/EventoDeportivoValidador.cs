@@ -27,7 +27,7 @@ public class EventoDeportivoValidador(IRepositorioPersona repo)
         {
             mensajeError += "Duración del evento inválida. \n";
         }
-        if(!repo.existeID(eventoDeportivo.ResponsableId)){
+        if(!repo.existeId(eventoDeportivo.ResponsableId)){
             mensajeError += "Responsable del evento inválido.\n";
         }
         return (mensajeError == "");
