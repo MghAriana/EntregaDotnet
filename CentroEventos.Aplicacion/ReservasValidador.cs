@@ -8,25 +8,24 @@ public class ReservasValidador(IRepositorioReserva repoReserva,IRepositorioPerso
 
         mensajeError = "";
 
-        if (!Ipersona.existeId(unareserva._Persona_id))
+        if (!Ipersona.existeID((int)unareserva.Idpersona))
         {
-            mensajeError = "El dni no existe. \n"
+            mensajeError = "El dni no existe. \n";
         }
-        if (!Ieventos.ExistePersona (unareserva._Persona_id))
+        if (!repoReserva.ExisteResposable((int)unareserva.Idpersona))
         {
-            mensajeError = "La persona no reservo. \n"
+            mensajeError = "La persona no reservo. \n";
         }
-        if (repoReserva.ExistePersona(unareserva._Persona_id) && _repoReserva.existeReservaEvento(unareserva._EventoDeportivoid))
+        if (repoReserva.ExisteResposable((int)unareserva.Idpersona) && repoReserva.existenReservas((int)unareserva.IdEven_Dep))
         {
-            mensajeError = "Ya existe reserva para este evento /n"
+            mensajeError = "Ya existe reserva para este evento /n";
         }
-        int cantActReservas = repoReserva.contarPorEvento(unareserva._EventoDeportivoid);
-        if (cantActReservas >= Ieventos.ListarEventosConCupo(unareserva._EventoDeportivoid))
-        {//aceder a evento con id traer el cupo max y comparar el repo reservas para saber la cantidad de reserva
+        if (!repoReserva.ExisteCupo(unareserva.Id))
+        {
             mensajeError = "No hay cupo en este evento";
         }
 
-        return mensajeError;
+        return mensajeError == "";
 
 
     }

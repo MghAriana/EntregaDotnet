@@ -6,8 +6,10 @@ public interface IRepositorioReserva
 {
     void AgregarReserva(Reserva unareserva);
     void RealizarBaja (int idReserva);
-    public bool ExistePersona(int IdResponsable);
-    public bool ExisteCupo(int idReserva);
-    public bool ExistenReservas(int idEvento);
+    void Modificar(Reserva unareserva);
+    public bool existeLaReserva(int idReserva);
+    public bool ExisteResposable(int IdResponsable);
+    public bool ExisteCupo(int idEvento);
+    public bool existenReservas(int idEvento);
     public List<EventoDeportivo> ListarEventosConCupo();
 }
