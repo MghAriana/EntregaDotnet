@@ -13,25 +13,17 @@ public class Persona {
     private string? _apellido;
     private string? _email;//public Email {get;set;}--->pasa a ser una propiedad 
     private string? _telefono;
-
-
-    public Persona(string dni ,string ape,string nom, string email , string tel, IRepositorioID repo)
+    public Persona(int id, string? dni , string? ape, string? nom, string? email , string? tel)
     {
-        this._id = repo.GenerarId("Persona");
+        this._id = id;
         this._dni = dni; ///consulta a IrepositorioPersona
         this._nombre = nom;
         this._apellido =ape;
         this._email = email; 
         this._telefono = tel;
     }
-    public Persona(){
-
-    }
-    
-
     public int Id{
         get { return _id; }
-        set { _id = value; }
     }
     public string? Dni{
         get{return _dni;}
