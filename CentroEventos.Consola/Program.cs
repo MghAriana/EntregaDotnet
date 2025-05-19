@@ -21,30 +21,35 @@ para obtener un listado de los eventos futuros donde aún existen cupos disponib
 ListarAsistenciaAEventoUseCase para obtener la lista de todos los asistentes a un evento pasado.
 */
 
-//Configuro las dependencias:
+//-----------------------> Configuro las dependencias <-----------------------
+//Interfaces:
 IRepositorioPersona repoP = new RepositorioPersonaTXT();
-IRepositorioReserva repoR = new RepositorioReservaTXT();
 IRepositorioEventoDeportivo repoE = new RepositorioEventoDeportivoTXT();
+IRepositorioReserva repoR = new RepositorioReservaTXT(repoE);
 IRepositorioID repoID = new RepositorioIDTXT();
 IRepositorioPersona rPersona = new RepositorioPersonaTXT();
+//Validadores:
+PersonaValidador validadorP = new PersonaValidador(repoP);
+EventoDeportivoValidador validadorE = new EventoDeportivoValidador(repoP);
+ReservasValidador validadorR = new ReservasValidador(repoR, repoP, repoE);
 
 // --------------------------> Casos de uso: Persona <--------------------------
-var AgregarPersona = new PersonaAltaUseCase(repoP, new PersonaValidador(repoP));
+var AgregarPersona = new PersonaAltaUseCase(repoP, validadorP,repoID);
 var ListarPersonas = new ListarPersonasUseCase(repoP);
 var EliminarPersona = new PersonaBajaUseCase();
+var ModificarPersona = new PersonaModificacionesUseCase();
 
 //Alta:
 //Hacer primero las validaciones dentro de AltaUseCase y luego generar el Id
-AgregarPersona.Ejecutar( new Persona("45307494","Cerati","Gustavo","sodaEstereo@gmail.com","2216210323",repoID) );
-AgregarPersona.Ejecutar( new Persona("42800880","Garcia","Charly","9noPiso@gmail.com","2216220330",repoID) );
-AgregarPersona.Ejecutar( new Persona("39807682","Cantilo","Fabiana","amaneceEnLaRuta@gmail.com","2214210606",repoID) );
+AgregarPersona.Ejecutar();
+AgregarPersona.Ejecutar();
 //Listar:
 List <Persona> lista_personas = ListarPersonas.Ejecutar();
 //Baja:
 //Modificar:
 
 // ----------------------> Casos de uso: EventoDeportivo <----------------------
-var AgregarEvento = new EventoDeportivoAltaUseCase( repoE, new EventoDeportivoValidador(repoP), repoID);
+var AgregarEvento = new EventoDeportivoAltaUseCase( repoE, validadorE, repoID);
 var ListarEventos = new ListarEventoDeportivoUseCase(repoE);
 var EliminarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
 var ModificarEvento = new EventoDeportivoModificacionUseCase();
@@ -58,7 +63,24 @@ foreach(EventoDeportivo evento in lista_eventos)
     Console.WriteLine(evento.ToString());
 }
 // Baja:
-EliminarEvento.Ejecutar(7);
+EliminarEvento.Ejecutar(2);
 // Modificar:
-
+ModificarEvento.Ejecutar();
 // --------------------------> Casos de uso: Reserva <--------------------------
+var AgregarReserva = new ReservasAltaUseCase(repoR, validadorR);
+var ListarReserva = new ListarReservaUseCase();
+var EliminarReserva = new ReservasBajaUseCase(repoR);
+var ModificarReserva = new ReservasModificacionUseCase(repoR,validadorR);
+
+AgregarReserva.Ejecutar();
+AgregarReserva.Ejecutar();
+
+List<Reserva> lista_reservas = ListarReserva.Ejecutar();
+foreach (Reserva reserva in lista_reservas)
+{
+    Console.WriteLine(reserva.ToString());
+}
+
+EliminarReserva.Ejecutar(1);
+
+ModificarReserva.Ejecutar();

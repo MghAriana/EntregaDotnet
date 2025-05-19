@@ -8,5 +8,8 @@ namespace CentroEventos.Aplicacion;
 
 public class EventoDeportivoModificacionUseCase
 {
-    
+    public void Ejecutar()
+    { 
+        
+    }
 }

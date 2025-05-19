@@ -51,27 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-      "projectName": "CentroEventos.Consola",
-      "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-      "packagesPath": "C:\\Users\\Amorsito\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-      "projectName": "CentroEventos.Consola",
-      "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-      "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\obj\\",
->>>>>>> main
-=======
       "projectUniqueName": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
       "projectName": "CentroEventos.Consola",
       "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
       "packagesPath": "C:\\Users\\sheil\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
->>>>>>> main
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sheil\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -86,27 +70,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-            },
-            "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
-=======
-            "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-            },
-            "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
->>>>>>> main
-=======
             "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
               "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
             },
             "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
               "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
->>>>>>> main
             }
           }
         }
@@ -163,5 +131,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
