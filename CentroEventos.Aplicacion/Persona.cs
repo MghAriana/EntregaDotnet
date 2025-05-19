@@ -24,6 +24,10 @@ public class Persona {
         this._email = email; 
         this._telefono = tel;
     }
+    public Persona(){
+
+    }
+    
 
     public int Id{
         get { return _id; }

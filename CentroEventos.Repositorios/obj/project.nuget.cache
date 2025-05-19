@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "n/25rGZ/KS4=",
   "success": true,
   "projectFilePath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+=======
+  "dgSpecHash": "DGM0fwhASE0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
+>>>>>>> main
   "expectedPackageFiles": [],
   "logs": []
 }

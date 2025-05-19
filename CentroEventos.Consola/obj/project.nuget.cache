@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "aDnGTPWZOR0=",
   "success": true,
   "projectFilePath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+=======
+  "dgSpecHash": "A64XgHsUiT0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+>>>>>>> main
   "expectedPackageFiles": [],
   "logs": []
 }
