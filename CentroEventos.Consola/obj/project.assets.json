@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
       "projectName": "CentroEventos.Consola",
-      "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
+      "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
       "packagesPath": "C:\\Users\\Amorsito\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
+      "outputPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -70,11 +70,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
+            "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
             },
-            "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
+            "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
             }
           }
         }
