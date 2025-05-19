@@ -1,6 +1,7 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "HcWHj2UJMr4=",
   "success": true,
   "projectFilePath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
@@ -10,5 +11,15 @@
   "projectFilePath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
 >>>>>>> main
   "expectedPackageFiles": [],
+=======
+  "dgSpecHash": "0JPua2iRFMU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\sheil\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+  ],
+>>>>>>> main
   "logs": []
 }

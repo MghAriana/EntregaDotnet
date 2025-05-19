@@ -7,6 +7,7 @@ public interface IRepositorioPersona
     public void agregarPersona(Persona Persona);
 
     public List<Persona> ListarPersonas();
+    public void eliminarPersona(int id);
 
     public bool existeDni(string dni);
     public bool existeEmail(string email);

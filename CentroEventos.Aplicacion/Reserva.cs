@@ -58,6 +58,7 @@ namespace CentroEventos.Aplicacion
             aux += $"Reserva: {this._id} , \nPersona ID: {this._Persona_id} , \nEvento Deportivo ID: {this._EventoDeportivoid} , \nFecha de Alta : {this._FechaAltaReserva} \nEstado de Asistencia: {this._EstadoAsistencia}";
             return aux;
         }
-
+        
+        //Agregar propiedades para poder acceder a los atributos privados.
     }
 }

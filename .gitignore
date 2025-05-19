@@ -5,3 +5,10 @@ obj/
 *.Assembly.cs
 *.dll
 *.pdb
+
+CentroEventos.Aplicacion/bin/
+CentroEventos.Aplicacion/obj/
+CentroEventos.Consola/bin/
+CentroEventos.Consola/obj/
+CentroEventos.Repositorios/bin/
+CentroEventos.Repositorios/obj/
