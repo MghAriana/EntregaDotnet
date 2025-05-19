@@ -1,5 +1,6 @@
 using System;
 using CentroEventos.Aplicacion;
+using Microsoft.Win32.SafeHandles;
 namespace CentroEventos.Repositorios;
 
 public class RepositorioPersonaTXT : IRepositorioPersona 
@@ -23,7 +24,8 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public List<Persona> ListarPersonas() {
         List<Persona> lista = new List<Persona>();
         using var sr = new StreamReader(_nomArch);
-        while (!sr.EndOfStream)
+        bool encontre = false;
+        while (!sr.EndOfStream && !encontre)
         {
             var persona = new Persona();
             persona.Id = int.Parse(sr.ReadLine() ?? "");
@@ -34,7 +36,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             persona.Telefono = sr.ReadLine();
             if (existeId(persona.Id) && existeDni(persona.Dni) && existeEmail(persona.Email))
             {
-                break;
+                encontre = true;
             }
             else
             {
@@ -43,12 +45,62 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         }
         return lista;
         }
+    public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
+    {   
+        bool personaEncontrada = false;
+        using var sr = new StreamReader(_nomArch);
+        using var sw = new StreamWriter(_nomArch);
+        try
+        {
 
-    public bool existeDni(string dni){
+
+            var lista = new List<string>();
+            var listaMarca = new List<string>(); //---------> guardo en la lista los que tienen marca de borrado por si se necesita un historial con todos 
+            string? linea;
+            int idAct;
+            while (!sr.EndOfStream && ((linea = sr.ReadLine()) != null))
+            {
+                var campo = linea.Split(',');
+                idAct = int.Parse(campo[0]); //----------> Parse para convertir el string en un int 
+                if (idAct == id)
+                {
+                    personaEncontrada = true;
+                    campo[0] = "x";
+                    listaMarca.Add($"{campo[0]},{campo[1]},{campo[2]},{campo[3]},{campo[4]},{campo[5]} , X "); //----------> uso X como marca de borrado
+                }
+                else
+                {
+                    lista.Add(linea);
+                }
+                foreach (var act in lista)
+                {
+                    sw.WriteLine(act);
+                }
+            }
+            if (!personaEncontrada)
+            {
+                throw new Exception("no se encontro a la persona");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Error al dar de baja a la persona: {ex.Message}", ex);
+
+        }
+        finally
+        {
+            sr.Dispose();
+            sw.Dispose();
+        }      
+    }
+
+    public bool existeDni(string dni)
+    {
         bool encontro = false;
         string? linea; //metodo de StreamReader por lineas
         using var sr = new StreamReader(_nomArch, true);
-        while((linea = sr.ReadLine()) != null && !encontro) 
+        while ((linea = sr.ReadLine()) != null && !encontro)
         {
             string[] campo = linea.Split(',');
 
