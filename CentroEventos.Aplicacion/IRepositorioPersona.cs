@@ -8,8 +8,9 @@ public interface IRepositorioPersona
 
     public List<Persona> ListarPersonas();
     public void eliminarPersona(int id);
-
+    public void modificarPersona(Persona persona,int opcion);
     public bool existeDni(string dni);
+    public bool existePersona(int id);
     public bool existeEmail(string email);
     public bool existeId(int id);
 
