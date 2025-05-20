@@ -3,44 +3,46 @@ using System;
 namespace CentroEventos.Repositorios;
 using CentroEventos.Aplicacion;
 
-public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
+public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
 {
     readonly string _archivoED = "eventos_deportivos.txt";
     public void AgregarEvento(EventoDeportivo evento)
     {
         using var sw = new StreamWriter(_archivoED, true);
         // Genero un vector de string ["id","nombre","descripcion","fechaHoraInicio","duracion","cupo","responsabe"]
-        string[] linea = {  $"{evento.Id}", 
-                            $"{evento.Nombre}", 
-                            $"{evento.Descripcion}", 
+        string[] linea = {  $"{evento.Id}",
+                            $"{evento.Nombre}",
+                            $"{evento.Descripcion}",
                             $"{evento.FechaHoraInicio}",
                             $"{evento.DuracionHoras}",
                             $"{evento.CupoMaximo}",
                             $"{evento.ResponsableId}" };
-        sw.WriteLine(string.Join(",",linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
+        sw.WriteLine(string.Join(",", linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
         sw.Dispose();
     }
-    public void BajarEvento(int id_evento) 
+    public void BajarEvento(int id_evento)
     {
         List<EventoDeportivo> lista = this.ListarEventos();
-        if(lista.Count() == 0)
+        if (lista.Count() == 0)
         {
             throw new Exception("No hay eventos cargados.");
         }
         int i = 0;
         bool encontre = false;
-        while(i < lista.Count() && !encontre){
-            if(lista[i].Id == id_evento)
-            {   
+        while (i < lista.Count() && !encontre)
+        {
+            if (lista[i].Id == id_evento)
+            {
                 lista.RemoveAt(i);
                 encontre = true;
             }
             else i++;
         }
-        if(encontre) Console.WriteLine("Evento eliminado");
+        if (encontre) Console.WriteLine("Evento eliminado");
 
         using var sw = new StreamWriter(_archivoED, false);
-        foreach(EventoDeportivo evento in lista){
+        foreach (EventoDeportivo evento in lista)
+        {
             string linea = $"{evento.Id},{evento.Nombre},{evento.Descripcion},{evento.FechaHoraInicio},{evento.DuracionHoras},{evento.CupoMaximo},{evento.ResponsableId}";
             sw.WriteLine(linea);
         }
@@ -56,10 +58,10 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
         List<EventoDeportivo> lista = new List<EventoDeportivo>();
         using var sr = new StreamReader(_archivoED);
         string? linea = sr.ReadLine();
-        while(!string.IsNullOrEmpty(linea))
-        { 
-            string[] c = linea.Split(","); 
-            EventoDeportivo evento = new EventoDeportivo(int.Parse(c[0]),c[1],c[2],DateTime.Parse(c[3]),double.Parse(c[4]),int.Parse(c[5]),int.Parse(c[6]));
+        while (!string.IsNullOrEmpty(linea))
+        {
+            string[] c = linea.Split(",");
+            EventoDeportivo evento = new EventoDeportivo(int.Parse(c[0]), c[1], c[2], DateTime.Parse(c[3]), double.Parse(c[4]), int.Parse(c[5]), int.Parse(c[6]));
             lista.Add(evento);
             linea = sr.ReadLine();
         }
@@ -67,4 +69,10 @@ public class RepositorioEventoDeportivoTXT: IRepositorioEventoDeportivo
         return lista;
     }
 
+    public bool existeResponsable(int id)
+    {
+        List<EventoDeportivo> lista = this.ListarEventos();
+        EventoDeportivo? evento = lista.Find(e => e.ResponsableId == id);
+        return (evento != null); // si existe responsable retorna true, sino, retorna false.
+    }
 }
