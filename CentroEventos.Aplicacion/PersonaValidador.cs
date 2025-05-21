@@ -9,21 +9,21 @@ public class PersonaValidador(IRepositorioPersona ipersona){
         
         if (string.IsNullOrWhiteSpace(Persona.Nombre))
         {
-            mensajeError = "debe proporcionar un nombre valido";
+            throw new ValidacionException(mensajeError); // mensajeError = "debe proporcionar un nombre valido";
         }
         if (string.IsNullOrWhiteSpace(Persona.Apellido))
         {
-            mensajeError = "debe proporcionar un apellido valido\n";
+            throw new ValidacionException(mensajeError);
         }
         if (string.IsNullOrWhiteSpace(Persona.Email))
         {
-            mensajeError = "el campo email no puede estar vacio\n";
-        }
-        else
+            throw new ValidacionException(mensajeError);
+        }else
         {
             if (ipersona.existeEmail(Persona.Email))
             {
-                mensajeError = "el email ingresado ya esta asociado a una cuenta\n"; 
+                throw new DuplicadoException(mensajeError) ;
+
             }
         }
 
@@ -32,19 +32,19 @@ public class PersonaValidador(IRepositorioPersona ipersona){
 
         if (string.IsNullOrWhiteSpace(Persona.Dni))
         {
-            mensajeError = "el campo dni no puede estar vacio\n";
+            throw new ValidacionException(mensajeError);
 
         }
         else
         {
             if (ipersona.existeDni(Persona.Dni))
             {
-                mensajeError = "Ya existe una persona con el dni ingresado";
+                throw new DuplicadoException(mensajeError) ;
             }
-            if (!Persona.Dni.All(char.IsDigit))
+           /* if (!Persona.Dni.All(char.IsDigit))
             {
                 mensajeError += "El DNI solo debe contener caracteres numéricos\n";
-            }
+            }*/
 
         }
        
