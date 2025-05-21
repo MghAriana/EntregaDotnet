@@ -13,7 +13,10 @@ public class Persona {
     private string? _apellido;
     private string? _email;//public Email {get;set;}--->pasa a ser una propiedad 
     private string? _telefono;
-    public Persona(int id, string? dni , string? ape, string? nom, string? email , string? tel)
+
+
+    public Persona(int id,string? dni ,string? ape,string? nom, string? email , string? tel)
+
     {
         this._id = id;
         this._dni = dni; ///consulta a IrepositorioPersona
