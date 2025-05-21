@@ -74,15 +74,15 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     }
     public bool ExisteResposable(int IdResponsable)
     {
-        List<Reserva> listaR = this.ListarReserva();
-        if (listaR.Count() == 0)
+        List<Persona> listaP = repoP.ListarPersonas();
+        if (listaP.Count() == 0)
         {
             throw new Exception("No hay reservas");
         }
         int i = 0;
-        while (i < listaR.Count())
+        while (i < listaP.Count())
         {
-            if (listaR[i].Idpersona == IdResponsable)
+            if (listaP[i].Id == IdResponsable)
             {
                 return true;
             }
@@ -92,7 +92,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     }
     public bool existenReservas(int idEvento)
     {
-        List<Reserva> listaR = this.ListarReserva();
+        List<EventoDeportivo> listaR = repoEVDE.ListarEventos();
         if (listaR.Count() == 0)
         {
             throw new Exception("No hay reservas");
@@ -100,7 +100,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         int i = 0;
         while (i < listaR.Count())
         {
-            if (listaR[i].IdEven_Dep == idEvento)
+            if (listaR[i].Id == idEvento)
             {
                 return true;
             }
@@ -166,7 +166,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         using (var sr = new StreamReader(_archReserva))
         {
             string? l = sr.ReadLine();
-            while (string.IsNullOrEmpty(l))
+            while (!string.IsNullOrEmpty(l))
             {
                 string[] a = l.Split(",");
                 Reserva reserva = new Reserva(int.Parse(a[0]), int.Parse(a[1]),int.Parse(a[2]),DateTime.Parse(a[3]),Enum.Parse<Estado>(a[4]));
