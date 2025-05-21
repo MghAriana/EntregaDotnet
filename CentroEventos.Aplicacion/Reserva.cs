@@ -2,13 +2,8 @@ using System;
 
 namespace CentroEventos.Aplicacion
 {
-    public enum Estado
-    {
-        Pendiente,
-        Presente,
-        Ausente
-    }
-    public class Reserva
+
+    public class Reserva 
     {
         
         private int _id; //gestionado por el repositorio
@@ -58,6 +53,5 @@ namespace CentroEventos.Aplicacion
             return aux;
         }
         
-        //Agregar propiedades para poder acceder a los atributos privados.
     }
 }

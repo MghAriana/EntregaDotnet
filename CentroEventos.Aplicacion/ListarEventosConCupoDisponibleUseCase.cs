@@ -2,7 +2,7 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ListarEventosConCupoDisponibleUseCase(IRepositorioReserva repo) //,IRepositorioReserva
+public class ListarEventosConCupoDisponibleUseCase(IRepositorioReserva repo)
 {
     public List<EventoDeportivo>? Ejecutar(){
         
