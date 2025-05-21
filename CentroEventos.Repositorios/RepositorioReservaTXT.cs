@@ -9,14 +9,15 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     readonly string _archReserva = "Reservas.txt";
     public void AgregarReserva(Reserva unareserva)
     {
-        using (var sw = new StreamWriter(_archReserva, true)){
+        using (var sw = new StreamWriter(_archReserva, true))
+        {
             string[] vec = {  $"{unareserva.Id}",
                                 $"{unareserva.Idpersona}",
                                 $"{unareserva.IdEven_Dep}",
                                 $"{unareserva.Fecha}",
                                 $"{unareserva.EstadoAsistencia}"};
-            sw.WriteLine(string.Join(",", vec)); 
-            }
+            sw.WriteLine(string.Join(",", vec));
+        }
     }
     public void RealizarBaja(int idReserva)
     {
@@ -46,8 +47,10 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
             }
         }
     }
-    public void Modificar(Reserva unareserva) 
-    {
+
+    public void Modificar(Reserva unareserva) //como el validador se encarga de dar a conocer si el id de la reserva existe y si la reservamodificada es corresta,
+                                              // el modificar solo se encarga de subir la modificacion, sin importar si existe o no ya que eso se da como contemplado que es correcto.
+    {//preguntar si es correcta la forma de pensarlo y si es necesario agregar un "traer reserva" para complementar o si todo el proceso de modificacion se realiza en el mismo Modificar del txt.
         List<Reserva> reservas = this.ListarReserva();
         int i = 0;
         bool modificado = false;
@@ -89,7 +92,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     }
     public bool existenReservas(int idEvento)
     {
-       List<Reserva> listaR = this.ListarReserva(); 
+        List<Reserva> listaR = this.ListarReserva();
         if (listaR.Count() == 0)
         {
             throw new Exception("No hay reservas");
@@ -136,10 +139,10 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     public List<EventoDeportivo> ListarEventosConCupo()
     {
         List<EventoDeportivo> eventos = repoEVDE.ListarEventos();
-        if(eventos.Count() == 0) throw new Exception("No hay eventos cargados.");
+        if (eventos.Count() == 0) throw new Exception("No hay eventos cargados.");
 
         List<Reserva> reservas = this.ListarReserva();
-        if(reservas.Count() == 0) throw new Exception("No hay eventos cargados.");
+        if (reservas.Count() == 0) throw new Exception("No hay eventos cargados.");
 
         List<EventoDeportivo> listacupo = new List<EventoDeportivo>();
         foreach (EventoDeportivo e in eventos)
@@ -155,7 +158,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
             if (e.CupoMaximo > cantcupo) listacupo.Add(e);
         }
         return listacupo;
-        
+
     }
     public List<Reserva> ListarReserva()
     {
@@ -224,5 +227,17 @@ public List<Persona> ListarAsistencia(int idEvento)
             else { i++; }
         }
         return false;
+    }
+    public int ContarReservasSegunEvento(int id_evento)
+    {
+        List<Reserva> listaR = this.ListarReserva();
+        int cant = 0;
+        int i = 0;
+        while (i < listaR.Count())
+        {
+            if (listaR[i].IdEven_Dep == id_evento) cant++;
+            i++;
+        }
+        return cant; 
     }
 }

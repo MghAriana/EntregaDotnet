@@ -36,8 +36,8 @@ ReservasValidador validadorR = new ReservasValidador(repoR, repoP, repoE);
 // --------------------------> Casos de uso: Persona <--------------------------
 var AgregarPersona = new PersonaAltaUseCase(repoP, validadorP,repoID);
 var ListarPersonas = new ListarPersonasUseCase(repoP);
-var EliminarPersona = new PersonaBajaUseCase();
-var ModificarPersona = new PersonaModificacionesUseCase();
+var EliminarPersona = new PersonaBajaUseCase(repoP, repoR, repoE);
+var ModificarPersona = new PersonaModificacionesUseCase(repoP, validadorP);
 
 //Alta:
 //Hacer primero las validaciones dentro de AltaUseCase y luego generar el Id
@@ -52,7 +52,7 @@ List <Persona> lista_personas = ListarPersonas.Ejecutar();
 var AgregarEvento = new EventoDeportivoAltaUseCase( repoE, validadorE, repoID);
 var ListarEventos = new ListarEventoDeportivoUseCase(repoE);
 var EliminarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
-var ModificarEvento = new EventoDeportivoModificacionUseCase();
+var ModificarEvento = new EventoDeportivoModificacionUseCase(repoE,repoR,validadorE);
 // Alta:
 AgregarEvento.Ejecutar();
 AgregarEvento.Ejecutar();
@@ -67,7 +67,7 @@ EliminarEvento.Ejecutar(2);
 // Modificar:
 ModificarEvento.Ejecutar();
 // --------------------------> Casos de uso: Reserva <--------------------------
-var AgregarReserva = new ReservasAltaUseCase(repoR, validadorR);
+var AgregarReserva = new ReservasAltaUseCase(repoR, validadorR, repoID);
 var ListarReserva = new ListarReservaUseCase();
 var EliminarReserva = new ReservasBajaUseCase(repoR);
 var ModificarReserva = new ReservasModificacionUseCase(repoR,validadorR);
@@ -83,4 +83,4 @@ foreach (Reserva reserva in lista_reservas)
 
 EliminarReserva.Ejecutar(1);
 
-ModificarReserva.Ejecutar();
+//ModificarReserva.Ejecutar();
