@@ -27,6 +27,9 @@ public class PersonaValidador(IRepositorioPersona ipersona){
             }
         }
 
+
+
+
         if (string.IsNullOrWhiteSpace(Persona.Dni))
         {
             mensajeError = "el campo dni no puede estar vacio\n";
@@ -38,6 +41,11 @@ public class PersonaValidador(IRepositorioPersona ipersona){
             {
                 mensajeError = "Ya existe una persona con el dni ingresado";
             }
+            if (!Persona.Dni.All(char.IsDigit))
+            {
+                mensajeError += "El DNI solo debe contener caracteres numéricos\n";
+            }
+
         }
        
         return (mensajeError == "");
