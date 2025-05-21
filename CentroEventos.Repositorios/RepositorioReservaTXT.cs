@@ -4,7 +4,7 @@ namespace CentroEventos.Repositorios;
 using System.Collections.Generic;
 using CentroEventos.Aplicacion;
 
-public class RepositorioReservaTXT(IRepositorioEventoDeportivo repoEVDE) : IRepositorioReserva //preguntar
+public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepositorioPersona repoP): IRepositorioReserva//preguntar
 {
     readonly string _archReserva = "Reservas.txt";
     public void AgregarReserva(Reserva unareserva)
@@ -47,6 +47,7 @@ public class RepositorioReservaTXT(IRepositorioEventoDeportivo repoEVDE) : IRepo
             }
         }
     }
+
     public void Modificar(Reserva unareserva) //como el validador se encarga de dar a conocer si el id de la reserva existe y si la reservamodificada es corresta,
                                               // el modificar solo se encarga de subir la modificacion, sin importar si existe o no ya que eso se da como contemplado que es correcto.
     {//preguntar si es correcta la forma de pensarlo y si es necesario agregar un "traer reserva" para complementar o si todo el proceso de modificacion se realiza en el mismo Modificar del txt.
@@ -107,6 +108,25 @@ public class RepositorioReservaTXT(IRepositorioEventoDeportivo repoEVDE) : IRepo
         }
         return false;
     }
+    public bool existeReservaAsociadaAPersona(int idpersona)
+    {
+       List<Reserva> listaR = this.ListarReserva(); 
+        if (listaR.Count() == 0)
+        {
+            throw new Exception("No hay reservas");
+        }
+        int i = 0;
+        while (i < listaR.Count())
+        {
+            if (listaR[i].Idpersona== idpersona)
+            {
+                return true;
+            }
+            else { i++; }
+        }
+        return false;
+    }
+
     public bool ExisteCupo(int idEvento)
     {
         List<EventoDeportivo> lcupo = ListarEventosConCupo();
@@ -135,7 +155,7 @@ public class RepositorioReservaTXT(IRepositorioEventoDeportivo repoEVDE) : IRepo
                     cantcupo++;
                 }
             }
-            if (e.CupoMaximo < cantcupo) listacupo.Add(e);
+            if (e.CupoMaximo > cantcupo) listacupo.Add(e);
         }
         return listacupo;
 
@@ -149,18 +169,47 @@ public class RepositorioReservaTXT(IRepositorioEventoDeportivo repoEVDE) : IRepo
             while (string.IsNullOrEmpty(l))
             {
                 string[] a = l.Split(",");
-                Reserva reserva = new Reserva();
-                reserva.Id = int.Parse(a[0]);
-                reserva.Idpersona = int.Parse(a[1]);
-                reserva.IdEven_Dep = int.Parse(a[2]);
-                reserva.Fecha = DateTime.Parse(a[3]);
-                reserva.EstadoAsistencia = Enum.Parse<Estado>(a[4]);
+                Reserva reserva = new Reserva(int.Parse(a[0]), int.Parse(a[1]),int.Parse(a[2]),DateTime.Parse(a[3]),Enum.Parse<Estado>(a[4]));
                 listaR.Add(reserva);
                 l = sr.ReadLine();
             }
         }
         return listaR;
     }
+public List<Persona> ListarAsistencia(int idEvento)
+{
+    List<EventoDeportivo> eventos = repoEVDE.ListarEventos();
+    EventoDeportivo? even = eventos.Find(e => e.Id == idEvento); 
+    if (even == null)
+        {
+            throw new Exception("No existe el evento");
+        }
+    if (even.FechaHoraInicio < DateTime.Now)
+    {
+        throw new Exception("El evento esta pendiente");
+    }
+    List<Reserva> reserva = this.ListarReserva();
+    List<Persona> personas = repoP.ListarPersonas();
+    List<Persona> Asistentes = new List<Persona>();
+
+        foreach (Reserva r in reserva)
+        {
+            if (r.IdEven_Dep == idEvento && r.EstadoAsistencia == Estado.Presente)
+            {
+                foreach (Persona p in personas)
+                {
+                    if (r.Idpersona == p.Id)
+                    {
+                        Asistentes.Add(p);
+                    }
+                }
+            }
+            
+        }
+    return Asistentes;   
+            
+    }
+
     public bool existeLaReserva(int idReserva)
     {
         List<Reserva> listaR = this.ListarReserva();
