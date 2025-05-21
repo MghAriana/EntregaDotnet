@@ -4,16 +4,17 @@ namespace CentroEventos.Aplicacion;
 
 public class PersonaBajaUseCase(IRepositorioPersona repoPer, IRepositorioReserva reserva,IRepositorioEventoDeportivo repoevento)
 {
-    public void Ejecutar(Persona persona)
+    public void Ejecutar(int id_persona)
     {
         if (reserva.existeReservaAsociadaAPersona(persona.Id) &&repoevento.existeResponsable(persona.Id) )
+
         {
             throw new Exception("no se puede eliminar una persona porque tiene una reserva asociada");
         }
         
         else
         {
-            repoPer.eliminarPersona(persona.Id);
+            repoPer.eliminarPersona(id_persona);
         }
     }
 }

@@ -23,6 +23,7 @@ public class PersonaValidador(IRepositorioPersona ipersona){
             if (ipersona.existeEmail(Persona.Email))
             {
                 throw new DuplicadoException(mensajeError) ;
+
             }
         }
 

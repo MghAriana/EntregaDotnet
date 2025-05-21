@@ -7,11 +7,11 @@ public class PersonaAltaUseCase(IRepositorioPersona repopersona , PersonaValidad
     private Persona cargarPersona()
     {
         Console.WriteLine("Ingresar datos personales: ");
-        Console.WriteLine("Dni: "); string? dni = Console.ReadLine();
-        Console.WriteLine("Apellido: "); string? ape = Console.ReadLine();
-        Console.WriteLine("Nombre: "); string? nom = Console.ReadLine();
-        Console.WriteLine("Email: "); string? email = Console.ReadLine();
-        Console.WriteLine("Telefo: "); string? tel = Console.ReadLine();
+        Console.WriteLine("Dni: "); string dni = Console.ReadLine() ?? "";
+        Console.WriteLine("Apellido: "); string ape = Console.ReadLine() ?? "";
+        Console.WriteLine("Nombre: "); string nom = Console.ReadLine() ?? "";
+        Console.WriteLine("Email: "); string email = Console.ReadLine() ?? "";
+        Console.WriteLine("Telefo: "); string tel = Console.ReadLine() ?? "";
         return new Persona(repoID.GenerarId("Persona"), dni, ape, nom, email, tel);
     }
     public void Ejecutar()

@@ -21,7 +21,7 @@ public class EventoDeportivoValidador(IRepositorioPersona repo)
         }
         if(eventoDeportivo.CupoMaximo <= 0)
         {
-            mensajeError += "El cupo máximo del evento no es válido.\n";
+            mensajeError += "El cupo máximo del evento no es válido.\n"; 
         }
         if(eventoDeportivo.DuracionHoras <= 0)
         {

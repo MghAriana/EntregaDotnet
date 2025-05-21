@@ -63,7 +63,8 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             sr.Close(); // ó sr.Dispose();
         }
     }
-            
+
+
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
         bool personaEncontrada = false;
