@@ -69,21 +69,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             sr.Close(); // ó sr.Dispose();
         }
     }
-            /* var persona = new Persona();
-                persona.Id = int.Parse(sr.ReadLine() ?? "");
-                persona.Dni = sr.ReadLine() ?? "";
-                persona.Email = sr.ReadLine() ?? "";
-                persona.Nombre = sr.ReadLine();
-                persona.Apellido = sr.ReadLine();
-                persona.Telefono = sr.ReadLine();
-                if (existeId(persona.Id) && existeDni(persona.Dni) && existeEmail(persona.Email))
-                {
-                    encontre = true;
-                }
-                else
-                {
-                    lista.Add(persona);
-                }*/
+    
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
         bool personaEncontrada = false;
