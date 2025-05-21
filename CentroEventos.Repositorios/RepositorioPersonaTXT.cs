@@ -27,9 +27,9 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public List<Persona> ListarPersonas()
     {
         List<Persona> lista = new List<Persona>();
-        using var sr = new StreamReader(_nomArch);
+        /*using var sr = new StreamReader(_nomArch);
         bool encontre = false;
-        while (!sr.EndOfStream && !encontre)
+        /while (!sr.EndOfStream && !encontre)
         {
             var persona = new Persona();
             persona.Id = int.Parse(sr.ReadLine() ?? "");
@@ -46,7 +46,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             {
                 lista.Add(persona);
             }
-        }
+        }*/
         return lista;
     }
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado

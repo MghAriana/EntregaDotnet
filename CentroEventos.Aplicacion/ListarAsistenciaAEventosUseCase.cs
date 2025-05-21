@@ -5,7 +5,7 @@ namespace CentroEventos.Aplicacion;
 
 public class ListarAsistenciaAEventosUseCase (IRepositorioReserva repo)
 {
-    public List<Estado> Ejecutar( int idEvento){
+    public List<Persona> Ejecutar( int idEvento){
 
         return repo.ListarAsistencia(idEvento); //preguntar
     }

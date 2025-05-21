@@ -23,7 +23,7 @@ public class PersonaValidador(IRepositorioPersona ipersona){
         {
             if (ipersona.existeEmail(Persona.Email))
             {
-                mensajeError = "el email ingresado ya esta asociado a una cuenta\n";
+                mensajeError = "el email ingresado ya esta asociado a una cuenta\n"; 
             }
         }
 
