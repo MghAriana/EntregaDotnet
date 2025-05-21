@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Threading.Channels;
 using CentroEventos.Aplicacion;
@@ -12,16 +13,26 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public void agregarPersona(Persona persona)
     {
         using var sw = new StreamWriter(_nomArch, true);
-        string[] linea = { $"{persona.Id}" ,
+        try
+        {
+            string[] linea = { $"{persona.Id}" ,
                         $"{persona.Dni}",
                         $"{persona.Nombre}",
                         $"{persona.Apellido}",
                         $"{persona.Email}",
                         $"{persona.Telefono}"
         };
-        sw.WriteLine(string.Join(",", linea));
-        Console.WriteLine("Persona agregada: " + string.Join(",", linea));
+            sw.WriteLine(string.Join(",", linea));
+            Console.WriteLine("Persona agregada: " + string.Join(",", linea));
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"ocurrio un error al agegar a la persona: {ex.Message}", ex);
+        }
+        finally
+        {
         sw.Dispose();//--------> para liberar recursos 
+        }
 
     }
     public List<Persona> ListarPersonas()
@@ -29,26 +40,50 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         List<Persona> lista = new List<Persona>();
         using var sr = new StreamReader(_nomArch);
         bool encontre = false;
-        while (!sr.EndOfStream && !encontre)
+        try
         {
-            var persona = new Persona();
-            persona.Id = int.Parse(sr.ReadLine() ?? "");
-            persona.Dni = sr.ReadLine() ?? "";
-            persona.Email = sr.ReadLine() ?? "";
-            persona.Nombre = sr.ReadLine();
-            persona.Apellido = sr.ReadLine();
-            persona.Telefono = sr.ReadLine();
-            if (existeId(persona.Id) && existeDni(persona.Dni) && existeEmail(persona.Email))
+            string? linea = sr.ReadLine();
+            while (!string.IsNullOrEmpty(linea) && !encontre)
             {
-                encontre = true;
+                string[] campo = linea.Split(",");
+
+                Persona persona = new Persona(int.Parse(campo[0]), campo[1], campo[2], campo[3], campo[4], campo[5] );
+                if (existeId(persona.Id) && existeDni(campo[2]) && existeEmail(campo[4]))
+                {
+                    encontre = true;
+                }
+                else
+                {
+                    lista.Add(persona);
+                }
+                linea = sr.ReadLine();
             }
-            else
-            {
-                lista.Add(persona);
-            }
+            return lista;
         }
-        return lista;
+        catch (Exception exc)
+        {
+            throw new Exception($"ocurrio un error al listar {exc.Message}");
+        }
+        finally
+        {
+            sr.Close(); // ó sr.Dispose();
+        }
     }
+            /* var persona = new Persona();
+                persona.Id = int.Parse(sr.ReadLine() ?? "");
+                persona.Dni = sr.ReadLine() ?? "";
+                persona.Email = sr.ReadLine() ?? "";
+                persona.Nombre = sr.ReadLine();
+                persona.Apellido = sr.ReadLine();
+                persona.Telefono = sr.ReadLine();
+                if (existeId(persona.Id) && existeDni(persona.Dni) && existeEmail(persona.Email))
+                {
+                    encontre = true;
+                }
+                else
+                {
+                    lista.Add(persona);
+                }*/
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
         bool personaEncontrada = false;
@@ -77,15 +112,16 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                 {
                     lista.Add(linea);
                 }
-                foreach (var act in lista)
+                
+            }
+            foreach (var act in lista)
                 {
                     sw.WriteLine(act);
                 }
-                foreach (var act in listaMarca)
-                {
+            foreach (var act in listaMarca)
+             {
                     sw2.WriteLine(act);
-                }
-            }
+             }
             if (!personaEncontrada)
             {
                 throw new Exception("no se encontro a la persona");
@@ -104,44 +140,44 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         }
     }
 
-    public void modificarPersona(Persona per, int opcion)
+    public void modificarPersona(int id, PersonaValidador validador )
     {
-        using var sr = new StreamReader(_nomArch);
+        Console.WriteLine("ingrese una opcion para modificar n 1:dni\n 2:nombre \n 3:apellido 4:email \n 5:telefono");
+        int opcion = int.Parse(Console.ReadLine() ?? "");
+        //var lista = new List<string>();
+        List<Persona> listaPer = this.ListarPersonas();
+        Persona? persona= listaPer.Find(per => per.Id == id);
 
-        var lista = new List<string>();
-        string? linea; int idact;
-        Console.WriteLine("ingrese una opcion para modificar n 1:dni\n 2:nombre \n 3:apellido 4:telefono");
-        while ((linea = sr.ReadLine()) != null)
+        if (persona == null)
         {
-            var campos = linea.Split(',');
-            idact = int.Parse(campos[0]);
+            throw new Exception("no ingreso ninguna persona");
+        }
+                /*var campos = linea.Split(',');*/
 
-            if (per.Id == idact)
-            {
-                Console.WriteLine("ingrese el dato a modificar");
-                string aux = Console.ReadLine() ?? "";
-
-                switch (opcion)
-                {
-                    case 1: campos[1] = aux; break;
-                    case 2: campos[2] = aux; break;// tambien podria concatenar en el case
-                    case 3: campos[3] = aux; break;
-                    case 4: campos[0] = aux; break;
-                    default: throw new Exception("opcionno valida");
-                }
+                
+        Console.WriteLine("ingrese el dato a modificar");
+        string aux = Console.ReadLine() ?? "";
+         switch (opcion)
+        {
+        case 1: persona.Dni = aux; break; //campos[2] = aux;
+        case 2: persona.Nombre = aux; break;// tambien podria concatenar en el case
+        case 3: persona.Apellido = aux; break;
+        case 4: persona.Email = aux; break;
+        case 5: persona.Telefono = aux; break;
+        default: throw new Exception("opcionno valida");
+        }
+                
+        if (!validador.Validador(persona, out string mensajeError)) 
+        {
+            throw new Exception("no se pudo validar los datos");
+        } else {
+             this.eliminarPersona(id);
+             this.agregarPersona(persona);
             }
-            //concatenar los campos
-            string concatlinea = campos[0] + ',' + campos[1] + ',' + campos[2] + ',' + campos[3] + ',' + campos[4];
-            lista.Add(concatlinea);
-        }
-        using var sw = new StreamWriter(_nomArch);
-        foreach (var item in lista)
-        {
-            sw.WriteLine(item);
-        }
-        sr.Close();
-        sw.Close();
     }
+
+        
+   
     public bool existeDni(string dni)
     {
         bool encontro = false;

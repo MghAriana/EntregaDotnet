@@ -25,13 +25,23 @@ public class PersonaValidador(IRepositorioPersona ipersona){
                 mensajeError = "el email ingresado ya esta asociado a una cuenta\n";
             }
         }
-        
-       if(string.IsNullOrWhiteSpace(Persona.Dni)){
+
+
+
+        if (string.IsNullOrWhiteSpace(Persona.Dni))
+        {
             mensajeError = "el campo dni no puede estar vacio\n";
-        }else{
-            if(ipersona.existeDni(Persona.Dni)){
-            mensajeError = "Ya existe una persona con el dni ingresado";
         }
+        else
+        {
+            if (ipersona.existeDni(Persona.Dni))
+            {
+                mensajeError = "Ya existe una persona con el dni ingresado";
+            }
+            if (!Persona.Dni.All(char.IsDigit))
+            {
+                mensajeError += "El DNI solo debe contener caracteres numéricos\n";
+            }
         }
        
         return (mensajeError == "");
