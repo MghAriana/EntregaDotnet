@@ -13,10 +13,13 @@ public class ReservasAltaUseCase(IRepositorioReserva repo, ReservasValidador val
     public void Ejecutar()
     {
         Reserva unareserva = cargarReserva();
+        
         if (!validacion.Validar(unareserva, out string error))
         {
-            throw new Exception("Error al subir la reserva: " + error);
+            throw new Exception("Error al subir la reserva: "+ error);
         }
+
+        Console.WriteLine("Se validó la reserva, procede el alta.");
         repo.AgregarReserva(unareserva);
     }
 }
