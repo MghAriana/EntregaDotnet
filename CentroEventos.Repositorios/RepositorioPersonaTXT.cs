@@ -25,13 +25,14 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             sw.WriteLine(string.Join(",", linea));
             Console.WriteLine("Persona agregada: " + string.Join(",", linea));
         }
-        catch (Exception ex)
+        catch (EntidadNotFoundException ex)
         {
-            throw new Exception($"ocurrio un error al agegar a la persona: {ex.Message}", ex);
+            Console.WriteLine(ex.Message);
+            
         }
         finally
         {
-        sw.Dispose();//--------> para liberar recursos 
+            sw.Dispose();//--------> para liberar recursos 
         }
 
     }
@@ -39,23 +40,16 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     {
         List<Persona> lista = new List<Persona>();
         using var sr = new StreamReader(_nomArch);
-        bool encontre = false;
         try
         {
             string? linea = sr.ReadLine();
-            while (!string.IsNullOrEmpty(linea) && !encontre)
+            while (!string.IsNullOrEmpty(linea))
             {
                 string[] campo = linea.Split(",");
 
                 Persona persona = new Persona(int.Parse(campo[0]), campo[1], campo[2], campo[3], campo[4], campo[5] );
-                if (existeId(persona.Id) && existeDni(campo[2]) && existeEmail(campo[4]))
-                {
-                    encontre = true;
-                }
-                else
-                {
-                    lista.Add(persona);
-                }
+                lista.Add(persona);
+                
                 linea = sr.ReadLine();
             }
             return lista;
@@ -69,21 +63,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             sr.Close(); // ó sr.Dispose();
         }
     }
-            /* var persona = new Persona();
-                persona.Id = int.Parse(sr.ReadLine() ?? "");
-                persona.Dni = sr.ReadLine() ?? "";
-                persona.Email = sr.ReadLine() ?? "";
-                persona.Nombre = sr.ReadLine();
-                persona.Apellido = sr.ReadLine();
-                persona.Telefono = sr.ReadLine();
-                if (existeId(persona.Id) && existeDni(persona.Dni) && existeEmail(persona.Email))
-                {
-                    encontre = true;
-                }
-                else
-                {
-                    lista.Add(persona);
-                }*/
+            
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
         bool personaEncontrada = false;
@@ -160,7 +140,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
          switch (opcion)
         {
         case 1: persona.Dni = aux; break; //campos[2] = aux;
-        case 2: persona.Nombre = aux; break;// tambien podria concatenar en el case
+        case 2: persona.Nombre = aux; break;
         case 3: persona.Apellido = aux; break;
         case 4: persona.Email = aux; break;
         case 5: persona.Telefono = aux; break;
