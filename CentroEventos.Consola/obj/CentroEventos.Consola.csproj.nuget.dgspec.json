@@ -1,32 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
-=======
-    "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
->>>>>>> main
-  },
-  "projects": {
-    "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
-        "projectName": "CentroEventos.Aplicacion",
-        "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\sheil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {}
->>>>>>> main
   },
   "projects": {
     "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
@@ -40,10 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
-=======
-          "C:\\Users\\sheil\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> main
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -66,8 +37,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -83,42 +53,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-        "projectName": "CentroEventos.Consola",
-        "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\CentroEventos.Consola.csproj",
-        "packagesPath": "C:\\Users\\sheil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Consola\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -134,10 +73,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
-=======
-          "C:\\Users\\sheil\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> main
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -149,35 +84,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
               "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
                 "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
               },
               "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
                 "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
-=======
-<<<<<<< HEAD
-              "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-              },
-              "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-                "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
-=======
-              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-              },
-              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
->>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
->>>>>>> main
-=======
-              "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-              },
-              "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-                "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj"
->>>>>>> main
               }
             }
           }
@@ -191,8 +102,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -208,46 +118,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
-        "projectName": "CentroEventos.Repositorios",
-        "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\CentroEventos.Repositorios.csproj",
-        "packagesPath": "C:\\Users\\sheil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Repositorios\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -263,10 +138,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amorsito\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
-=======
-          "C:\\Users\\sheil\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> main
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -278,23 +149,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
               "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
                 "projectPath": "C:\\Users\\Amorsito\\desktop\\tp\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-=======
-<<<<<<< HEAD
-              "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\ignac\\Desktop\\EntregaDotnet\\CentroEventos\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
-=======
-              "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\Amorsito\\Desktop\\TP\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
->>>>>>> d03b5c5fec371c5b30e01fc1b7585f7aad438ca7
->>>>>>> main
-=======
-              "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\sheil\\Desktop\\proyectosDotnet\\EntregaDotnet\\CentroEventos.Aplicacion\\CentroEventos.Aplicacion.csproj"
->>>>>>> main
               }
             }
           }
@@ -308,8 +164,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -325,26 +180,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -11,7 +11,8 @@ public class PersonaValidador(IRepositorioPersona ipersona){
         {
             mensajeError = "debe proporcionar un nombre valido";
         }
-        if (string.IsNullOrWhiteSpace(Persona.Apellido)){
+        if (string.IsNullOrWhiteSpace(Persona.Apellido))
+        {
             mensajeError = "debe proporcionar un apellido valido\n";
         }
         if (string.IsNullOrWhiteSpace(Persona.Email))
@@ -28,9 +29,11 @@ public class PersonaValidador(IRepositorioPersona ipersona){
 
 
 
+
         if (string.IsNullOrWhiteSpace(Persona.Dni))
         {
             mensajeError = "el campo dni no puede estar vacio\n";
+
         }
         else
         {
@@ -42,6 +45,7 @@ public class PersonaValidador(IRepositorioPersona ipersona){
             {
                 mensajeError += "El DNI solo debe contener caracteres numéricos\n";
             }
+
         }
        
         return (mensajeError == "");

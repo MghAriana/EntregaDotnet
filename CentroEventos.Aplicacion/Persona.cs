@@ -15,7 +15,8 @@ public class Persona {
     private string? _telefono;
 
 
-    public Persona(int id,string dni ,string ape,string nom, string email , string tel)
+    public Persona(int id,string? dni ,string? ape,string? nom, string? email , string? tel)
+
     {
         this._id = id;
         this._dni = dni; ///consulta a IrepositorioPersona
@@ -24,14 +25,8 @@ public class Persona {
         this._email = email; 
         this._telefono = tel;
     }
-    public Persona(){
-
-    }
-    
-
     public int Id{
         get { return _id; }
-        set { _id = value; }
     }
     public string? Dni{
         get{return _dni;}
