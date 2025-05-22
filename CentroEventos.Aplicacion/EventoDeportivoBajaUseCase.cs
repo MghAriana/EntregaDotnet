@@ -8,7 +8,7 @@ public class EventoDeportivoBajaUseCase(IRepositorioEventoDeportivo repoE,IRepos
 {
     public void Ejecutar(int id_evento)
     {   
-        if(repoR.existenReservas(id_evento))
+        if(repoR.existenReservasAsociadasAlEvento(id_evento))
         {
             throw new Exception("No se puede eliminar el evento porque existen reservas asociadas.");
         }
