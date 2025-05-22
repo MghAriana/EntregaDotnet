@@ -11,7 +11,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     {
         using (var sw = new StreamWriter(_archReserva, true))
         {
-            string[] vec = {  $"{unareserva.Id}",
+            string[] vec = {  $"{unareserva.Id_reserva}",
                                 $"{unareserva.Idpersona}",
                                 $"{unareserva.IdEven_Dep}",
                                 $"{unareserva.Fecha}",
@@ -30,7 +30,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         bool existe = false;
         while (i < listaR.Count() && !existe)
         {
-            if (listaR[i].Id == idReserva)
+            if (listaR[i].Id_reserva == idReserva)
             {
                 listaR.RemoveAt(i);
                 Console.WriteLine("Eliminado con exito");
@@ -42,7 +42,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         {
             foreach (Reserva reserva in listaR)
             {
-                string l = $"{reserva.Id},{reserva.Idpersona},{reserva.IdEven_Dep},{reserva.Fecha},{reserva.EstadoAsistencia}";
+                string l = $"{reserva.Id_reserva},{reserva.Idpersona},{reserva.IdEven_Dep},{reserva.Fecha},{reserva.EstadoAsistencia}";
                 sw.WriteLine(l);
             }
         }
@@ -56,7 +56,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         bool modificado = false;
         while (i < reservas.Count() && !modificado)
         {
-            if (reservas[i].Id == unareserva.Id)
+            if (reservas[i].Id_reserva == unareserva.Id_reserva)
             {
                 reservas[i] = unareserva;
                 modificado = true;
@@ -67,7 +67,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         {
             foreach (Reserva r in reservas)
             {
-                string l = $"{r.Id},{r.Idpersona},{r.IdEven_Dep},{r.Fecha},{r.EstadoAsistencia}";
+                string l = $"{r.Id_reserva},{r.Idpersona},{r.IdEven_Dep},{r.Fecha},{r.EstadoAsistencia}";
                 sw.WriteLine(l);
             }
         }
@@ -92,21 +92,9 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     }
     public bool existenReservas(int idEvento)
     {
-        List<EventoDeportivo> listaR = repoEVDE.ListarEventos();
-        if (listaR.Count() == 0)
-        {
-            throw new Exception("No hay reservas");
-        }
-        int i = 0;
-        while (i < listaR.Count())
-        {
-            if (listaR[i].Id == idEvento)
-            {
-                return true;
-            }
-            else { i++; }
-        }
-        return false;
+        List<Reserva> listaR = this.ListarReserva();
+        Reserva? reserva = listaR.Find(r => r.IdEven_Dep == idEvento);
+        return reserva == null;
     }
 
     public bool existeReservaRegistrada(int id_persona, int id_evento)
@@ -118,29 +106,18 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     }
     public bool existeReservaAsociadaAPersona(int idpersona)
     {
-       List<Reserva> listaR = this.ListarReserva(); 
-        if (listaR.Count() == 0)
-        {
-            throw new Exception("No hay reservas");
-        }
-        int i = 0;
-        while (i < listaR.Count())
-        {
-            if (listaR[i].Idpersona== idpersona)
-            {
-                return true;
-            }
-            else { i++; }
-        }
-        return false;
+        List<Reserva> listaR = this.ListarReserva();
+        Reserva? reserva = listaR.Find(r => r.Idpersona == idpersona);
+        return reserva!=null;
     }
 
     public bool ExisteCupo(int idEvento)
     {
         List<EventoDeportivo> listaE = repoEVDE.ListarEventos();
-        EventoDeportivo? evento = listaE.Find(e => e.Id == idEvento);
-        if (evento == null) throw new Exception("No se encontró el evento");
-        int cant_reservas = this.ContarReservasSegunEvento(idEvento); 
+        EventoDeportivo? evento = listaE.Find(e => e.Id_evento == idEvento);
+        int cant_reservas = this.ContarReservasSegunEvento(idEvento);
+        Console.WriteLine($"cantidad de reservas asociadas al evento {idEvento}: {cant_reservas}");
+        Console.WriteLine($"Cupo máximo del evento: {evento.CupoMaximo}");
         return evento.CupoMaximo > cant_reservas;
     }
     public List<EventoDeportivo> ListarEventosConCupo()
@@ -157,7 +134,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
             int cantcupo = 0;
             foreach (Reserva r in reservas)
             {
-                if (r.IdEven_Dep == e.Id)
+                if (r.IdEven_Dep == e.Id_evento)
                 {
                     cantcupo++;
                 }
@@ -185,15 +162,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
 public List<Persona> ListarAsistencia(int idEvento)
 {
     List<EventoDeportivo> eventos = repoEVDE.ListarEventos();
-    EventoDeportivo? even = eventos.Find(e => e.Id == idEvento); 
-    if (even == null)
-        {
-            throw new Exception("No existe el evento");
-        }
-    if (even.FechaHoraInicio < DateTime.Now)
-    {
-        throw new Exception("El evento esta pendiente");
-    }
+    EventoDeportivo? even = eventos.Find(e => e.Id_evento == idEvento); 
     List<Reserva> reserva = this.ListarReserva();
     List<Persona> personas = repoP.ListarPersonas();
     List<Persona> Asistentes = new List<Persona>();

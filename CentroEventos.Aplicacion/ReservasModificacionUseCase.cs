@@ -20,7 +20,7 @@ public class ReservasModificacionUseCase (IRepositorioReserva repo, ReservasVali
     public void Ejecutar(int idReserva)
     {
         List<Reserva> lista = repo.ListarReserva();
-        Reserva? reser = lista.Find(r => r.Id == idReserva);
+        Reserva? reser = lista.Find(r => r.Id_reserva == idReserva);
         if (reser == null)
         {
             throw new Exception("No existe la reserva");
