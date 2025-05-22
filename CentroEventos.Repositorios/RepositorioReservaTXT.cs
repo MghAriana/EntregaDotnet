@@ -108,6 +108,14 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         }
         return false;
     }
+
+    public bool existeReservaRegistrada(int id_persona, int id_evento)
+    {
+        List<Reserva> listaR = this.ListarReserva();
+        Reserva? filtro = listaR.Find(r => r.IdEven_Dep == id_evento && r.Idpersona == id_persona);
+        if (filtro == null) return false;
+        return true;
+    }
     public bool existeReservaAsociadaAPersona(int idpersona)
     {
        List<Reserva> listaR = this.ListarReserva(); 
@@ -129,12 +137,11 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
 
     public bool ExisteCupo(int idEvento)
     {
-        List<EventoDeportivo> lcupo = ListarEventosConCupo();
-        foreach (EventoDeportivo e in lcupo)
-        {
-            if (e.Id == idEvento) return true;
-        }
-        return false;
+        List<EventoDeportivo> listaE = repoEVDE.ListarEventos();
+        EventoDeportivo? evento = listaE.Find(e => e.Id == idEvento);
+        if (evento == null) throw new Exception("No se encontró el evento");
+        int cant_reservas = this.ContarReservasSegunEvento(idEvento); 
+        return evento.CupoMaximo > cant_reservas;
     }
     public List<EventoDeportivo> ListarEventosConCupo()
     {
@@ -163,17 +170,16 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
     public List<Reserva> ListarReserva()
     {
         List<Reserva> listaR = new List<Reserva>();
-        using (var sr = new StreamReader(_archReserva))
+        using var sr = new StreamReader(_archReserva, true);
+        string? linea = sr.ReadLine();
+        while (!string.IsNullOrEmpty(linea))
         {
-            string? l = sr.ReadLine();
-            while (!string.IsNullOrEmpty(l))
-            {
-                string[] a = l.Split(",");
-                Reserva reserva = new Reserva(int.Parse(a[0]), int.Parse(a[1]),int.Parse(a[2]),DateTime.Parse(a[3]),Enum.Parse<Estado>(a[4]));
-                listaR.Add(reserva);
-                l = sr.ReadLine();
-            }
+            string[] a = linea.Split(",");
+            Reserva reserva = new Reserva(int.Parse(a[0]), int.Parse(a[1]), int.Parse(a[2]), DateTime.Parse(a[3]), Enum.Parse<Estado>(a[4]));
+            listaR.Add(reserva);
+            linea = sr.ReadLine();
         }
+        sr.Dispose();
         return listaR;
     }
 public List<Persona> ListarAsistencia(int idEvento)
@@ -206,27 +212,7 @@ public List<Persona> ListarAsistencia(int idEvento)
             }
             
         }
-    return Asistentes;   
-            
-    }
-
-    public bool existeLaReserva(int idReserva)
-    {
-        List<Reserva> listaR = this.ListarReserva();
-        if (listaR.Count() == 0)
-        {
-            throw new Exception("No hay reservas");
-        }
-        int i = 0;
-        while (i < listaR.Count())
-        {
-            if (listaR[i].Id == idReserva)
-            {
-                return true;
-            }
-            else { i++; }
-        }
-        return false;
+    return Asistentes;          
     }
     public int ContarReservasSegunEvento(int id_evento)
     {
