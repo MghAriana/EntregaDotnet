@@ -7,35 +7,24 @@ public class ReservasModificacionUseCase (IRepositorioReserva repo, ReservasVali
 {
     private void ModificarUnaReserva(Reserva r)
     {
-        Reserva datos = cargarReservamodificada();
-        r.Idpersona = datos.Idpersona;
-        r.IdEven_Dep = datos.IdEven_Dep;
+        Console.WriteLine("Ingrese id de la persona: ");
+        r.Idpersona = int.TryParse(Console.ReadLine(), out int id_p) ? id_p : -1 ;
+        Console.WriteLine("Ingrese id del evento: ");
+        r.IdEven_Dep = int.TryParse(Console.ReadLine(),out int id_e) ? id_e : -1;
         r.Fecha = DateTime.Now;
-        r.EstadoAsistencia = datos.EstadoAsistencia;
-    }
-    private Reserva cargarReservamodificada()
-    {
-        Console.WriteLine("Ingrese id de la persona: "); int idpersona = int.TryParse(Console.ReadLine(), out int id_p) ? id_p : -1 ;
-        Console.WriteLine("Ingrese id del evento: "); int idevento = int.TryParse(Console.ReadLine(),out int id_e) ? id_e : -1;
         Console.WriteLine("Ingrese nuevo estado: (0 = Pendiente, 1 = Presente, 2 = Ausente)");
         bool estadoOk = int.TryParse(Console.ReadLine(), out int estNum);
         Estado estadoNuevo = estadoOk && Enum.IsDefined(typeof(Estado), estNum) ? (Estado)estNum : Estado.Pendiente;
-        return new Reserva
-        {
-            Idpersona = id_p,
-            IdEven_Dep = id_e,
-            EstadoAsistencia = estadoNuevo
-        };  
+        r.EstadoAsistencia = estadoNuevo;
     }
-
     public void Ejecutar(int idReserva)
     {
-        if (!repo.existeLaReserva(idReserva))
+        List<Reserva> lista = repo.ListarReserva();
+        Reserva? reser = lista.Find(r => r.Id == idReserva);
+        if (reser == null)
         {
             throw new Exception("No existe la reserva");
         }
-        List<Reserva> lista = repo.ListarReserva();
-        Reserva? reser = lista.Find(r => r.Id == idReserva);
         ModificarUnaReserva(reser);
         if (!validador.Validar(reser, out string error))
         {

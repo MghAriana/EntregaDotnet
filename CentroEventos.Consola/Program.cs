@@ -31,7 +31,7 @@ IServicioAutorizacion autorizador = new ServicioDeAutorizacionProvisorio();
 //Validadores:
 PersonaValidador validadorP = new PersonaValidador(repoP);
 EventoDeportivoValidador validadorE = new EventoDeportivoValidador(repoP);
-ReservasValidador validadorR = new ReservasValidador(repoR, repoP, repoE);
+ReservasValidador validadorR = new ReservasValidador(repoR, repoP);
 //var autorizacion = new ServicioAutorizacionProvisorio();
 //Casos de uso: Persona 
 var AgregarPersona = new PersonaAltaUseCase(repoP, validadorP,repoID);
@@ -45,7 +45,7 @@ var BorrarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
 var ModificarEvento = new EventoDeportivoModificacionUseCase(repoE, repoR, validadorE);
 // Casos de uso: Reserva 
 var AgregarReserva = new ReservasAltaUseCase(repoR, validadorR, repoID);
-var ListarReserva = new ListarReservaUseCase();
+var ListarReserva = new ListarReservaUseCase(repoR);
 var BorrarReserva = new ReservasBajaUseCase(repoR);
 var ModificarReserva = new ReservasModificacionUseCase(repoR, validadorR);
 // Casos de uso: Otros
@@ -112,7 +112,7 @@ while (!terminar)
             }
             break;
         case 7:
-            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
+            if (autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
             {
                 Console.Write("Ingrese id de la persona que desea modificar: ");
                 int id_persona_m = int.TryParse(Console.ReadLine(), out int id_pm) ? id_pm : -1;

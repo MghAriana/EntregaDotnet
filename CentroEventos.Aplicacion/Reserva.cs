@@ -49,7 +49,7 @@ namespace CentroEventos.Aplicacion
         public override string ToString()
         {
             string aux = "";
-            aux += $"Reserva: {this._id} , \nPersona ID: {this._Persona_id} , \nEvento Deportivo ID: {this._EventoDeportivoid} , \nFecha de Alta : {this._FechaAltaReserva} \nEstado de Asistencia: {this._EstadoAsistencia}";
+            aux += $"Reserva: {this._id} , Persona ID: {this._Persona_id} , Evento Deportivo ID: {this._EventoDeportivoid} , \nFecha de Alta : {this._FechaAltaReserva}, Estado de Asistencia: {this._EstadoAsistencia}";
             return aux;
         }
         
