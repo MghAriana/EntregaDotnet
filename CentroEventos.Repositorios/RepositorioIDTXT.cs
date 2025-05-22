@@ -15,7 +15,6 @@ public class RepositorioIDTXT : IRepositorioID
     readonly string _archivo = "ultimos_Ids_generados.txt"; // Contiene una sola línea: "id_persona, id_evento, id_reserva"
     public int GenerarId(string nom_clase)
     {
-        Console.WriteLine("Generando id_" + nom_clase + " ... ");
         var sr = new StreamReader(_archivo, true);
         string? linea = sr.ReadLine(); sr.Dispose();
 

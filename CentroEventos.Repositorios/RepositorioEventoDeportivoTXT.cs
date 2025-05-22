@@ -19,6 +19,7 @@ public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
                             $"{evento.ResponsableId}" };
         sw.WriteLine(string.Join(",", linea)); // Creo un string con todos los campos separados por "," y lo cargo en el archivo. 
         sw.Dispose();
+        Console.WriteLine("Evento agregado: "+ linea);
     }
     public void BajarEvento(int id_evento)
     {
