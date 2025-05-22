@@ -165,8 +165,11 @@ while (!terminar)
             foreach (Reserva reserva in lista_reservas) Console.WriteLine(reserva.ToString());
             break;
         case 13:
-            List<EventoDeportivo> lista_eventos_con_cupo = ListarEventosConCupoDisponible.Ejecutar();
-            foreach(EventoDeportivo evento in lista_eventos_con_cupo) Console.WriteLine(evento.ToString());
+            List<EventoDeportivo>? lista_eventos_con_cupo = ListarEventosConCupoDisponible.Ejecutar();
+            if (lista_eventos_con_cupo != null)
+            { 
+                foreach (EventoDeportivo evento in lista_eventos_con_cupo) Console.WriteLine(evento.ToString());
+            }
             break;
         case 14:
             Console.Write("Ingrese id del evento: ");
