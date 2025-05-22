@@ -20,7 +20,7 @@ public class ReservasValidador(IRepositorioReserva repoReserva, IRepositorioPers
         {
             mensajeError = "Ya existe reserva para este evento /n";
         }
-        if (!repoReserva.ExisteCupo(reserva.Id))
+        if (!repoReserva.ExisteCupo(reserva.Id_reserva))
         {
             mensajeError = "No hay cupo en este evento";
         }

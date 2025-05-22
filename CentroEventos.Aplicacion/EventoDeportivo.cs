@@ -5,7 +5,7 @@ namespace CentroEventos.Aplicacion;
 
 public class EventoDeportivo
 {
-    private int _Id; // único, debe ser autoincremental gestionado por el repositorio) 
+    private int _Id_evento; // único, debe ser autoincremental gestionado por el repositorio) 
     private string _Nombre;// ej: "Clase de Spinning Avanzado", "Partido final de Vóley"
     private string _Descripcion;
     private DateTime _FechaHoraInicio = new DateTime(1,1,1,0,0,0) ; // DateTime - Fecha y hora exactas de inicio del evento
@@ -14,7 +14,7 @@ public class EventoDeportivo
     private int _ResponsableId; // Id de la Persona a cargo del evento
     public EventoDeportivo(int id_evento, string nombre, string descripcion, DateTime fecha_hora, double duracion, int cupo_max, int id_responsable)
     {
-        this._Id = id_evento;
+        this._Id_evento = id_evento;
         this._Nombre = nombre;
         this._Descripcion = descripcion;
         this._FechaHoraInicio = fecha_hora;
@@ -22,9 +22,9 @@ public class EventoDeportivo
         this._CupoMaximo = cupo_max;
         this._ResponsableId = id_responsable;    
     }
-    public int Id
+    public int Id_evento
     {
-        get { return _Id; }
+        get { return _Id_evento; }
     }
 
     public string Nombre {
@@ -58,6 +58,6 @@ public class EventoDeportivo
     }
 
     public override string ToString(){
-        return $" Evento {Id} - '{Nombre}': \n Descripcion: {Descripcion} - Fecha y Hora: {FechaHoraInicio.ToString()} ";
+        return $" Evento {Id_evento} - '{Nombre}': \n Descripcion: {Descripcion} - Fecha y Hora: {FechaHoraInicio.ToString()} ";
     }
 }
