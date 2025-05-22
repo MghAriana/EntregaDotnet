@@ -6,7 +6,7 @@ namespace CentroEventos.Aplicacion
     public class Reserva 
     {
         
-        private int _id; //gestionado por el repositorio
+        private int _Id_reserva; //gestionado por el repositorio
         private int _Persona_id;
         private int _EventoDeportivoid;
         private DateTime? _FechaAltaReserva;
@@ -17,14 +17,14 @@ namespace CentroEventos.Aplicacion
         }
 
         public Reserva (int id, int idpersona, int eventoid, DateTime? Fecha, Estado estado){
-            this._id = id;
+            this._Id_reserva = id;
             this._Persona_id = idpersona;
             this._EventoDeportivoid = eventoid;
             this._FechaAltaReserva = Fecha;
             this._EstadoAsistencia = estado;
         }
-        public int Id{
-            get { return _id; }
+        public int Id_reserva{
+            get { return _Id_reserva; }
         }
         public int Idpersona
         {
@@ -49,7 +49,7 @@ namespace CentroEventos.Aplicacion
         public override string ToString()
         {
             string aux = "";
-            aux += $"Reserva: {this._id} , Persona ID: {this._Persona_id} , Evento Deportivo ID: {this._EventoDeportivoid} , \nFecha de Alta : {this._FechaAltaReserva}, Estado de Asistencia: {this._EstadoAsistencia}";
+            aux += $"Reserva: {this._Id_reserva} , Persona ID: {this._Persona_id} , Evento Deportivo ID: {this._EventoDeportivoid} , Fecha de Alta : {this._FechaAltaReserva} , Estado de Asistencia: {this._EstadoAsistencia}";
             return aux;
         }
         

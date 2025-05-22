@@ -17,6 +17,6 @@
 21,Salto Olímpico,Sin comentarios,15/6/2025 15:05:06,2,5,10
 22,Zumba Power-Up,Dejá de ser una pelotuda y vení a moverte!,25/5/2025 15:05:06,1,25,3
 23,Salto Olímpico,Sin comentarios,15/6/2025 15:05:06,2,5,10
-24,Zumba Power-Up,Dejá de ser una pelotuda y vení a moverte!,25/5/2025 15:05:06,1,25,3
 25,Salto Olímpico,Sin comentarios,15/6/2025 15:05:06,2,5,10
 26,GAP,Entrenamiento con enfoque en gluteos abdomen y piernas ,10/10/2025 15:00:00,2,13,2
+24,Zumba Power-Up,¿Querés dejar de ser una pelotuda? ¡Dale! Dejá de llorar y vení a moverte.,25/5/2025 15:05:06,1,5,3

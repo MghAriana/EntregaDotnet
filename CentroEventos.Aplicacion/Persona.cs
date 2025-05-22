@@ -48,10 +48,9 @@ public class Persona {
         get{ return  _telefono;}
         set{}
     }
-
-    public string toString(){
+    public override string ToString(){
         string aux="";
-        aux+= $"Persona: {this._id} , \ndni: {this._dni} , \nnombre {this._nombre} , \napellido : {this._apellido} \nemail: {this._email} \ntelefono: {this._telefono}";
+        aux+= $"Persona: {this._id} , dni: {this._dni} , nombre: {this._nombre} , apellido: {this._apellido} , email: {this._email} , telefono: {this._telefono}";
         return aux;
     }
 
