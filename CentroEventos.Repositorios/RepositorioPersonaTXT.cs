@@ -27,7 +27,6 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         catch (EntidadNotFoundException ex)
         {
             Console.WriteLine(ex.Message);
-            
         }
         finally
         {
@@ -93,7 +92,6 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         //var lista = new List<string>();
         List<Persona> listaPer = this.ListarPersonas();
         Persona? persona= listaPer.Find(per => per.Id == id);
-
         if (persona == null)
         {
             throw new Exception("no ingreso ninguna persona");
@@ -109,15 +107,16 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             case 4: persona.Email = aux; break;
             case 5: persona.Telefono = aux; break;
             default: throw new Exception("opcionno valida");
-        }
-                
+        }   
         if (!validador.Validador(persona, out string mensajeError)) 
         {
             throw new Exception("no se pudo validar los datos");
-        } else {
+        } 
+        else 
+        {
              this.eliminarPersona(id);
              this.agregarPersona(persona);
-            }
+        }
     }
 
         
