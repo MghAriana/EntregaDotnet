@@ -58,6 +58,6 @@ public class EventoDeportivo
     }
 
     public override string ToString(){
-        return $" Evento {Id_evento} - '{Nombre}': \n Descripcion: {Descripcion} - Fecha y Hora: {FechaHoraInicio.ToString()} ";
+        return $" Evento {Id_evento}, nombre: '{Nombre}': \n Descripcion: {Descripcion} \n Fecha y Hora: {FechaHoraInicio.ToString()} , duración: {DuracionHoras}hs , cupo máximo: {CupoMaximo} , ID del responsable: {ResponsableId} ";
     }
 }

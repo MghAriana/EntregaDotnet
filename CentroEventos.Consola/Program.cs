@@ -99,7 +99,7 @@ while (!terminar)
             AgregarReserva.Ejecutar();
             break;
         case 4:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.UsuarioBaja))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioBaja))
             {
                 throw new FalloAutorizacionException();
             }
@@ -126,7 +126,7 @@ while (!terminar)
             if (id_reserva_b != -1) BorrarReserva.Ejecutar(id_reserva_b);
             break;
         case 7:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
             {
                 throw new FalloAutorizacionException();
             }
