@@ -8,10 +8,8 @@ namespace CentroEventos.Aplicacion;
 
 public class EventoDeportivoModificacionUseCase(IRepositorioEventoDeportivo repoE, IRepositorioReserva repoR, EventoDeportivoValidador validador)
 {
-    public void Ejecutar()
+    public void Ejecutar(int id_evento)
     {
-        Console.Write("Ingrese id del evento: ");
-        int id_evento = int.TryParse(Console.ReadLine(), out int id) ? id : -1;
         if (id_evento == -1)
         {
             throw new Exception("El id ingresado debe ser un numero entero mayor que 0.");

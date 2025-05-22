@@ -2,25 +2,25 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ReservasValidador(IRepositorioReserva repoReserva, IRepositorioPersona Ipersona, IRepositorioEventoDeportivo Ieventos)
+public class ReservasValidador(IRepositorioReserva repoReserva, IRepositorioPersona Ipersona)
 {
-    public bool Validar(Reserva unareserva, out string mensajeError){
+    public bool Validar(Reserva reserva, out string mensajeError){
 
         mensajeError = "";
-
-        if (!Ipersona.existeId(unareserva.Idpersona))
+        Console.WriteLine("Validando...");
+        if (!Ipersona.existeId(reserva.Idpersona))
         {
             mensajeError = "El dni no existe.\n";
         }
-        if (!repoReserva.ExisteResposable(unareserva.Idpersona))
+        if (!repoReserva.ExisteResposable(reserva.Idpersona))
         {
             mensajeError = "La persona no reservo. \n";
         }
-        if (repoReserva.ExisteResposable(unareserva.Idpersona) && repoReserva.existenReservas(unareserva.IdEven_Dep))
+        if (repoReserva.ExisteResposable(reserva.Idpersona) && repoReserva.existeReservaRegistrada(reserva.Idpersona,reserva.IdEven_Dep))
         {
             mensajeError = "Ya existe reserva para este evento /n";
         }
-        if (!repoReserva.ExisteCupo(unareserva.Id))
+        if (!repoReserva.ExisteCupo(reserva.Id))
         {
             mensajeError = "No hay cupo en este evento";
         }

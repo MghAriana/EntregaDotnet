@@ -2,11 +2,10 @@ using System;
 
 namespace CentroEventos.Aplicacion;
 
-public class ListarReservaUseCase
+public class ListarReservaUseCase(IRepositorioReserva repoR)
 {
     public List<Reserva> Ejecutar()
     {
-        List<Reserva> lista = new List<Reserva>();
-        return lista;        
+        return repoR.ListarReserva();       
     }
 }
