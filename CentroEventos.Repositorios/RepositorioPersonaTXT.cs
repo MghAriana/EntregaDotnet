@@ -93,16 +93,16 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                 {
                     lista.Add(linea);
                 }
-                
+
             }
             foreach (var act in lista)
-                {
-                    sw.WriteLine(act);
-                }
+            {
+                sw.WriteLine(act);
+            }
             foreach (var act in listaMarca)
-             {
-                    sw2.WriteLine(act);
-             }
+            {
+                sw2.WriteLine(act);
+            }
             if (!personaEncontrada)
             {
                 throw new Exception("no se encontro a la persona");
@@ -118,6 +118,7 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         {
             sr.Dispose();
             sw.Dispose();
+            sw2.Dispose();
         }
     }
 
