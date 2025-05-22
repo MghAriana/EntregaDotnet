@@ -10,7 +10,7 @@ public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
     {
         using var sw = new StreamWriter(_archivoED, true);
         // Genero un vector de string ["id","nombre","descripcion","fechaHoraInicio","duracion","cupo","responsabe"]
-        string[] linea = {  $"{evento.Id}",
+        string[] linea = {  $"{evento.Id_evento}",
                             $"{evento.Nombre}",
                             $"{evento.Descripcion}",
                             $"{evento.FechaHoraInicio}",
@@ -23,27 +23,23 @@ public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
     public void BajarEvento(int id_evento)
     {
         List<EventoDeportivo> lista = this.ListarEventos();
-        if (lista.Count() == 0)
-        {
-            throw new Exception("No hay eventos cargados.");
-        }
         int i = 0;
         bool encontre = false;
         while (i < lista.Count() && !encontre)
         {
-            if (lista[i].Id == id_evento)
+            if (lista[i].Id_evento == id_evento)
             {
                 lista.RemoveAt(i);
                 encontre = true;
             }
-            else i++;
+            i++;
         }
         if (encontre) Console.WriteLine("Evento eliminado");
 
         using var sw = new StreamWriter(_archivoED, false);
         foreach (EventoDeportivo evento in lista)
         {
-            string linea = $"{evento.Id},{evento.Nombre},{evento.Descripcion},{evento.FechaHoraInicio},{evento.DuracionHoras},{evento.CupoMaximo},{evento.ResponsableId}";
+            string linea = $"{evento.Id_evento},{evento.Nombre},{evento.Descripcion},{evento.FechaHoraInicio},{evento.DuracionHoras},{evento.CupoMaximo},{evento.ResponsableId}";
             sw.WriteLine(linea);
         }
         sw.Dispose();
@@ -81,12 +77,16 @@ public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
     public void ModificarEvento(int id_evento, IRepositorioReserva repoR, EventoDeportivoValidador validador)
     {
         List<EventoDeportivo> lista = this.ListarEventos();
-        EventoDeportivo? evento = lista.Find(e => e.Id == id_evento); // Busco el evento a modificar.
+        EventoDeportivo? evento = lista.Find(e => e.Id_evento == id_evento); // Busco el evento a modificar.
         if (evento == null)
         {
             throw new Exception("No se encontró un evento con el id proporcionado.");
         }
         bool terminar = false;
+        if (evento.FechaHoraInicio < DateTime.Now)
+        {
+            throw new Exception("No puede modificar un evento que ya finalizó.");
+        }
         while (!terminar)
         {
             int opcion = this.desplegarMenu();
@@ -132,13 +132,13 @@ public class RepositorioEventoDeportivoTXT : IRepositorioEventoDeportivo
         }
         if (!validador.Validar(evento, out string mensajeError))
         {
-            throw new Exception(mensajeError);
+            throw new ValidacionException(mensajeError);
         }
         this.BajarEvento(id_evento); // Doy de baja el evento. 
         this.AgregarEvento(evento); // Agrego el evento modificado.
     }
 
-    public bool existeResponsable(int id)
+    public bool esResponsableDeEvento(int id)
     {
         List<EventoDeportivo> lista = this.ListarEventos();
         EventoDeportivo? evento = lista.Find(e => e.ResponsableId == id);

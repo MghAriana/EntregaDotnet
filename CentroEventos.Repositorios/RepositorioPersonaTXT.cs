@@ -9,7 +9,6 @@ namespace CentroEventos.Repositorios;
 public class RepositorioPersonaTXT : IRepositorioPersona
 {
     readonly string _nomArch = "Personas.txt";
-    readonly string borrado = "borrado.txt";
     public void agregarPersona(Persona persona)
     {
         using var sw = new StreamWriter(_nomArch, true);
@@ -28,7 +27,6 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         catch (EntidadNotFoundException ex)
         {
             Console.WriteLine(ex.Message);
-            
         }
         finally
         {
@@ -63,63 +61,28 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             sr.Close(); // ó sr.Dispose();
         }
     }
-
-
-    public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
+    public void eliminarPersona(int id_persona) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
+        List<Persona> listaP = this.ListarPersonas();
+        int i = 0;
         bool personaEncontrada = false;
-        using var sr = new StreamReader(_nomArch, true);
-        using var sw = new StreamWriter(_nomArch);
-        using var sw2 = new StreamWriter(borrado); //-------> archivo historico con los borrados
-        try
+        while (i < listaP.Count && !personaEncontrada)
         {
-
-
-            var lista = new List<string>();
-            var listaMarca = new List<string>(); //---------> guardo en la lista los que tienen marca de borrado por si se necesita un historial con todos 
-            string? linea;
-            int idAct;
-            while ((linea = sr.ReadLine()) != null && !personaEncontrada)
+            if (listaP[i].Id == id_persona)
             {
-                var campo = linea.Split(',');
-                idAct = int.Parse(campo[0]); //----------> Parse para convertir el string en un int 
-                if (idAct == id)
-                {
-                    personaEncontrada = true;
-                    campo[0] = "x";
-                    listaMarca.Add($"{campo[0]},{campo[1]},{campo[2]},{campo[3]},{campo[4]},{campo[5]} , X "); //----------> uso X como marca de borrado
-                }
-                else
-                {
-                    lista.Add(linea);
-                }
-
+                listaP.RemoveAt(i);
+                personaEncontrada = true;
+                Console.WriteLine("Persona eliminada.");
             }
-            foreach (var act in lista)
-            {
-                sw.WriteLine(act);
-            }
-            foreach (var act in listaMarca)
-            {
-                sw2.WriteLine(act);
-            }
-            if (!personaEncontrada)
-            {
-                throw new Exception("no se encontro a la persona");
-            }
-
+            i++;
         }
-        catch (Exception ex)
+        using var sw = new StreamWriter(_nomArch, false);
+        foreach (Persona persona in listaP)
         {
-            throw new Exception($"Error al dar de baja a la persona: {ex.Message}", ex);
-
+            string linea = $"{persona.Id},{persona.Dni},{persona.Nombre},{persona.Apellido},{persona.Email},{persona.Telefono}";
+            sw.WriteLine(linea);
         }
-        finally
-        {
-            sr.Dispose();
-            sw.Dispose();
-            sw2.Dispose();
-        }
+        sw.Dispose();
     }
 
     public void modificarPersona(int id, PersonaValidador validador )
@@ -129,33 +92,31 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         //var lista = new List<string>();
         List<Persona> listaPer = this.ListarPersonas();
         Persona? persona= listaPer.Find(per => per.Id == id);
-
         if (persona == null)
         {
             throw new Exception("no ingreso ninguna persona");
         }
                 /*var campos = linea.Split(',');*/
-
-                
         Console.WriteLine("ingrese el dato a modificar");
         string aux = Console.ReadLine() ?? "";
-         switch (opcion)
+        switch (opcion)
         {
-        case 1: persona.Dni = aux; break; //campos[2] = aux;
-        case 2: persona.Nombre = aux; break;
-        case 3: persona.Apellido = aux; break;
-        case 4: persona.Email = aux; break;
-        case 5: persona.Telefono = aux; break;
-        default: throw new Exception("opcionno valida");
-        }
-                
+            case 1: persona.Dni = aux; break; //campos[2] = aux;
+            case 2: persona.Nombre = aux; break;
+            case 3: persona.Apellido = aux; break;
+            case 4: persona.Email = aux; break;
+            case 5: persona.Telefono = aux; break;
+            default: throw new Exception("opcionno valida");
+        }   
         if (!validador.Validador(persona, out string mensajeError)) 
         {
             throw new Exception("no se pudo validar los datos");
-        } else {
+        } 
+        else 
+        {
              this.eliminarPersona(id);
              this.agregarPersona(persona);
-            }
+        }
     }
 
         

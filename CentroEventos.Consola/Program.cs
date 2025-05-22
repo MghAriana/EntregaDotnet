@@ -32,7 +32,6 @@ IServicioAutorizacion autorizador = new ServicioDeAutorizacionProvisorio();
 PersonaValidador validadorP = new PersonaValidador(repoP);
 EventoDeportivoValidador validadorE = new EventoDeportivoValidador(repoP);
 ReservasValidador validadorR = new ReservasValidador(repoR, repoP);
-//var autorizacion = new ServicioAutorizacionProvisorio();
 //Casos de uso: Persona 
 var AgregarPersona = new PersonaAltaUseCase(repoP, validadorP,repoID);
 var ListarPersonas = new ListarPersonasUseCase(repoP);
@@ -79,61 +78,79 @@ while (!terminar)
     switch (opcion)
     {
         case 1:
-            if (autorizador.PoseeElPermiso(usuario,Permiso.UsuarioAlta)) AgregarPersona.Ejecutar();
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioAlta))
+            {
+                throw new FalloAutorizacionException();
+            }
+            AgregarPersona.Ejecutar();
             break;
         case 2:
-            if (autorizador.PoseeElPermiso(usuario,Permiso.EventoAlta)) AgregarEvento.Ejecutar();
+            if (!autorizador.PoseeElPermiso(usuario,Permiso.EventoAlta))
+            {
+                throw new FalloAutorizacionException();
+            }
+            AgregarEvento.Ejecutar();
             break;
         case 3:
-            if (autorizador.PoseeElPermiso(usuario,Permiso.ReservaAlta)) AgregarReserva.Ejecutar();
+            if (!autorizador.PoseeElPermiso(usuario,Permiso.ReservaAlta))
+            {
+                throw new FalloAutorizacionException();
+            }
+            AgregarReserva.Ejecutar();
             break;
         case 4:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.UsuarioBaja))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioBaja))
             {
-                Console.Write("Ingrese id de la persona que desea borrar: ");
-                int id_persona_b = int.TryParse(Console.ReadLine(), out int id_p) ? id_p : -1;
-                if (id_persona_b != -1) BorrarPersona.Ejecutar(id_persona_b);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id de la persona que desea borrar: ");
+            int id_persona_b = int.TryParse(Console.ReadLine(), out int id_p) ? id_p : -1;
+            if (id_persona_b != -1) BorrarPersona.Ejecutar(id_persona_b);
             break;
         case 5:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.EventoBaja))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.EventoBaja))
             {
-                Console.Write("Ingrese id del evento que desea borrar: ");
-                int id_evento_b = int.TryParse(Console.ReadLine(), out int id_e) ? id_e : -1;
-                if (id_evento_b != -1) BorrarEvento.Ejecutar(id_evento_b);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id del evento que desea borrar: ");
+            int id_evento_b = int.TryParse(Console.ReadLine(), out int id_e) ? id_e : -1;
+            if (id_evento_b != -1) BorrarEvento.Ejecutar(id_evento_b);
             break;
         case 6:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.ReservaBaja))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.ReservaBaja))
             {
-                Console.Write("Ingrese id de la reserva que desea borrar: ");
-                int id_reserva_b = int.TryParse(Console.ReadLine(), out int id_r) ? id_r : -1;
-                if (id_reserva_b != -1) BorrarReserva.Ejecutar(id_reserva_b);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id de la reserva que desea borrar: ");
+            int id_reserva_b = int.TryParse(Console.ReadLine(), out int id_r) ? id_r : -1;
+            if (id_reserva_b != -1) BorrarReserva.Ejecutar(id_reserva_b);
             break;
         case 7:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.UsuarioModificacion))
             {
-                Console.Write("Ingrese id de la persona que desea modificar: ");
-                int id_persona_m = int.TryParse(Console.ReadLine(), out int id_pm) ? id_pm : -1;
-                if (id_persona_m != -1) ModificarPersona.Ejecutar(id_persona_m);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id de la persona que desea modificar: ");
+            int id_persona_m = int.TryParse(Console.ReadLine(), out int id_pm) ? id_pm : -1;
+            if (id_persona_m != -1) ModificarPersona.Ejecutar(id_persona_m);
             break;
         case 8:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.EventoModificacion))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.EventoModificacion))
             {
-                Console.Write("Ingrese id del evento que desea modificar: ");
-                int id_evento_m = int.TryParse(Console.ReadLine(), out int id_em) ? id_em : -1;
-                if (id_evento_m != -1) ModificarEvento.Ejecutar(id_evento_m);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id del evento que desea modificar: ");
+            int id_evento_m = int.TryParse(Console.ReadLine(), out int id_em) ? id_em : -1;
+            if (id_evento_m != -1) ModificarEvento.Ejecutar(id_evento_m);
             break;
         case 9:
-            if (autorizador.PoseeElPermiso(usuario, Permiso.ReservaModificacion))
+            if (!autorizador.PoseeElPermiso(usuario, Permiso.ReservaModificacion))
             {
-                Console.Write("Ingrese id de la reserva que desea modificar: ");
-                int id_reserva_m = int.TryParse(Console.ReadLine(), out int id_rm) ? id_rm : -1;
-                if (id_reserva_m != -1) ModificarReserva.Ejecutar(id_reserva_m);
+                throw new FalloAutorizacionException();
             }
+            Console.Write("Ingrese id de la reserva que desea modificar: ");
+            int id_reserva_m = int.TryParse(Console.ReadLine(), out int id_rm) ? id_rm : -1;
+            if (id_reserva_m != -1) ModificarReserva.Ejecutar(id_reserva_m);
             break;
         case 10:
             List<Persona> lista_personas = ListarPersonas.Ejecutar();
