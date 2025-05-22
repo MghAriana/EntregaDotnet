@@ -2,4 +2,3 @@
 2,Salto Olímpico,Sin comentarios,15/6/2025 15:05:06,2,3,1
 3,GAP,Entrenamiento con enfoque en gluteos abdomen y piernas ,10/10/2025 15:00:00,2,13,2
 4,Zumba Power-Up,¿Querés dejar de ser una pelotuda? ¡Dale! Dejá de llorar y vení a moverte.,25/5/2025 15:05:06,1,5,3
-5,Crossfit,Convertite en un gladiador.,31/10/2025 17:00:00,25,8,10

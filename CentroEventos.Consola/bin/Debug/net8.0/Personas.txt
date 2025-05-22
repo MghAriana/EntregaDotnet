@@ -1,4 +1,3 @@
-1,45307494,Cerati,Gustavo,sodaEstereo@gmail.com,2216210323
-2,42800880,Garcia,Charly,9noPiso@gmail.com,2216220330
-3,39807682,Cantilo,Fabiana,amaneceEnLaRuta@gmail.com,2214210606
-4,25678908,Gomez,Celeste,cele@gmail.com,1525
+1,45307494,Gustavo,Cerati,sodaEstereo@gmail.com,2216210323
+2,42800880,Charly,Garcia,9noPiso@gmail.com,2216220330
+3,39807682,Fabiana,Cantilo,amaneceEnLaRuta@gmail.com,2214210606
