@@ -68,15 +68,16 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public void eliminarPersona(int id) //intento hacer un borrado logico guardandome una lista con marca de borrado
     {
         bool personaEncontrada = false;
-        using var sr = new StreamReader(_nomArch, true);
-        using var sw = new StreamWriter(_nomArch);
-        using var sw2 = new StreamWriter(borrado); //-------> archivo historico con los borrados
+        var lista = new List<string>();
+        var listaMarca = new List<string>(); //---------> guardo en la lista los que tienen marca de borrado por si se necesita un historial con todos 
+
+
+
         try
         {
 
 
-            var lista = new List<string>();
-            var listaMarca = new List<string>(); //---------> guardo en la lista los que tienen marca de borrado por si se necesita un historial con todos 
+            using var sr = new StreamReader(_nomArch, true);
             string? linea;
             int idAct;
             while ((linea = sr.ReadLine()) != null && !personaEncontrada)
@@ -95,10 +96,12 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                 }
 
             }
+            using var sw = new StreamWriter(_nomArch,false);//---->false para sobreescribir
             foreach (var act in lista)
             {
                 sw.WriteLine(act);
             }
+            using var sw2 = new StreamWriter(borrado,true); //-------> archivo historico con los borrados
             foreach (var act in listaMarca)
             {
                 sw2.WriteLine(act);
@@ -113,12 +116,6 @@ public class RepositorioPersonaTXT : IRepositorioPersona
         {
             throw new Exception($"Error al dar de baja a la persona: {ex.Message}", ex);
 
-        }
-        finally
-        {
-            sr.Dispose();
-            sw.Dispose();
-            sw2.Dispose();
         }
     }
 
