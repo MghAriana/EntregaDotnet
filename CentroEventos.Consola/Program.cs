@@ -45,7 +45,7 @@ var BorrarEvento = new EventoDeportivoBajaUseCase(repoE, repoR);
 var ModificarEvento = new EventoDeportivoModificacionUseCase(repoE, repoR, validadorE);
 // Casos de uso: Reserva 
 var AgregarReserva = new ReservasAltaUseCase(repoR, validadorR, repoID);
-var ListarReserva = new ListarReservaUseCase();
+var ListarReserva = new ListarReservaUseCase(repoR);
 var BorrarReserva = new ReservasBajaUseCase(repoR);
 var ModificarReserva = new ReservasModificacionUseCase(repoR, validadorR);
 // Casos de uso: Otros
