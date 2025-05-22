@@ -113,16 +113,18 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
 
     public bool ExisteCupo(int idEvento)
     {
+        int maximo = 0;
         List<EventoDeportivo> listaE = repoEVDE.ListarEventos();
         EventoDeportivo? evento = listaE.Find(e => e.Id_evento == idEvento);
         if (evento != null)
         {
-            int cant_reservas = this.ContarReservasSegunEvento(idEvento);
-            Console.WriteLine($"cantidad de reservas asociadas al evento {idEvento}: {cant_reservas}");
-            Console.WriteLine($"Cupo máximo del evento: {evento.CupoMaximo}");
-            return evento.CupoMaximo > cant_reservas;
+            maximo = evento.CupoMaximo;
         }
-        return false; 
+        int cant_reservas = this.ContarReservasSegunEvento(idEvento);
+        Console.WriteLine($"cantidad de reservas asociadas al evento {idEvento}: {cant_reservas}");
+
+        Console.WriteLine($"Cupo máximo del evento: {maximo}");
+        return maximo > cant_reservas;   
     }
     public List<EventoDeportivo> ListarEventosConCupo()
     {
