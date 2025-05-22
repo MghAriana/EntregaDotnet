@@ -10,7 +10,7 @@ public interface IRepositorioReserva
     public bool existeReservaAsociadaAPersona(int idpersona);
     public bool ExisteResposable(int IdResponsable);
     public bool ExisteCupo(int idEvento);
-    public bool existenReservas(int id_evento);
+    public bool existenReservasAsociadasAlEvento(int id_evento);
     public bool existeReservaRegistrada(int id_persona, int id_evento);
     public List<EventoDeportivo> ListarEventosConCupo();
     public List<Persona> ListarAsistencia(int idEvento);

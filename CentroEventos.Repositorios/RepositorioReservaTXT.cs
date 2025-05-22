@@ -90,7 +90,7 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
         }
         return false;
     }
-    public bool existenReservas(int idEvento)
+    public bool existenReservasAsociadasAlEvento(int idEvento)
     {
         List<Reserva> listaR = this.ListarReserva();
         Reserva? reserva = listaR.Find(r => r.IdEven_Dep == idEvento);
@@ -113,35 +113,35 @@ public class RepositorioReservaTXT (IRepositorioEventoDeportivo repoEVDE, IRepos
 
     public bool ExisteCupo(int idEvento)
     {
+        int maximo = 0;
         List<EventoDeportivo> listaE = repoEVDE.ListarEventos();
         EventoDeportivo? evento = listaE.Find(e => e.Id_evento == idEvento);
+        if (evento != null)
+        {
+            maximo = evento.CupoMaximo;
+        }
         int cant_reservas = this.ContarReservasSegunEvento(idEvento);
         Console.WriteLine($"cantidad de reservas asociadas al evento {idEvento}: {cant_reservas}");
-        Console.WriteLine($"Cupo máximo del evento: {evento.CupoMaximo}");
-        return evento.CupoMaximo > cant_reservas;
+
+        Console.WriteLine($"Cupo máximo del evento: {maximo}");
+        return maximo > cant_reservas;   
     }
     public List<EventoDeportivo> ListarEventosConCupo()
     {
         List<EventoDeportivo> eventos = repoEVDE.ListarEventos();
-        if (eventos.Count() == 0) throw new Exception("No hay eventos cargados.");
-
-        List<Reserva> reservas = this.ListarReserva();
-        if (reservas.Count() == 0) throw new Exception("No hay eventos cargados.");
-
-        List<EventoDeportivo> listacupo = new List<EventoDeportivo>();
+        List<EventoDeportivo> listaCupo = new List<EventoDeportivo>();
         foreach (EventoDeportivo e in eventos)
         {
-            int cantcupo = 0;
-            foreach (Reserva r in reservas)
+            if (e.CupoMaximo > ContarReservasSegunEvento(e.Id_evento))
             {
-                if (r.IdEven_Dep == e.Id_evento)
-                {
-                    cantcupo++;
-                }
+                listaCupo.Add(e);
             }
-            if (e.CupoMaximo > cantcupo) listacupo.Add(e);
         }
-        return listacupo;
+        if (listaCupo == null)
+        {
+            throw new Exception("No hay eventos con cupo disponible.");   
+        }
+        return listaCupo;
 
     }
     public List<Reserva> ListarReserva()
