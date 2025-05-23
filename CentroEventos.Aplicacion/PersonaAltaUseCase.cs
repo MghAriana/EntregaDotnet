@@ -16,10 +16,13 @@ public class PersonaAltaUseCase(IRepositorioPersona repopersona , PersonaValidad
     }
     public void Ejecutar()
     {
-        Persona persona = this.cargarPersona();
+        Persona? persona = this.cargarPersona();
         if (!validador.Validador(persona, out string mensajeError))
         {
             throw new Exception(mensajeError);
+        }
+        if (repopersona.existeEmail(persona.Email) || repopersona.existeDni(persona.Dni)) {
+            throw new DuplicadoException();
         }
         repopersona.agregarPersona(persona);
     }

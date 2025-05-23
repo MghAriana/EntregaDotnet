@@ -18,34 +18,15 @@ public class PersonaValidador(IRepositorioPersona ipersona){
         if (string.IsNullOrWhiteSpace(Persona.Email))
         {
             throw new ValidacionException(mensajeError);
-        }else
-        {
-            if (ipersona.existeEmail(Persona.Email))
-            {
-                throw new DuplicadoException(mensajeError) ;
-
-            }
         }
-
-
-
-
         if (string.IsNullOrWhiteSpace(Persona.Dni))
         {
             throw new ValidacionException(mensajeError);
 
         }
-        else
+        if (string.IsNullOrWhiteSpace(Persona.Telefono))
         {
-            if (ipersona.existeDni(Persona.Dni))
-            {
-                throw new DuplicadoException(mensajeError) ;
-            }
-           /* if (!Persona.Dni.All(char.IsDigit))
-            {
-                mensajeError += "El DNI solo debe contener caracteres numéricos\n";
-            }*/
-
+            throw new ValidacionException();
         }
        
         return (mensajeError == "");

@@ -87,8 +87,8 @@ public class RepositorioPersonaTXT : IRepositorioPersona
 
     public void modificarPersona(int id, PersonaValidador validador )
     {
-        Console.WriteLine("ingrese una opcion para modificar n 1:dni\n 2:nombre \n 3:apellido 4:email \n 5:telefono");
-        int opcion = int.Parse(Console.ReadLine() ?? "");
+       // Console.WriteLine("ingrese una opcion para modificar n 1:dni\n 2:nombre \n 3:apellido 4:email \n 5:telefono\n 6:salir");
+        //int opcion = int.Parse(Console.ReadLine() ?? "");
         //var lista = new List<string>();
         List<Persona> listaPer = this.ListarPersonas();
         Persona? persona= listaPer.Find(per => per.Id == id);
@@ -97,17 +97,25 @@ public class RepositorioPersonaTXT : IRepositorioPersona
             throw new Exception("no ingreso ninguna persona");
         }
                 /*var campos = linea.Split(',');*/
-        Console.WriteLine("ingrese el dato a modificar");
-        string aux = Console.ReadLine() ?? "";
-        switch (opcion)
-        {
-            case 1: persona.Dni = aux; break; //campos[2] = aux;
-            case 2: persona.Nombre = aux; break;
-            case 3: persona.Apellido = aux; break;
-            case 4: persona.Email = aux; break;
-            case 5: persona.Telefono = aux; break;
-            default: throw new Exception("opcionno valida");
-        }   
+        
+        
+        bool ok = true;
+        while (ok) {
+            Console.WriteLine("ingrese una opcion para modificar n 1:dni\n 2:nombre \n 3:apellido 4:email \n 5:telefono\n 6:salir");
+            int opcion = int.Parse(Console.ReadLine() ?? "");
+            switch (opcion)
+            {   
+                
+                case 1:Console.WriteLine("ingrese el dato a modificar"); persona.Dni = Console.ReadLine(); break; //campos[2] = aux;
+                case 2: Console.WriteLine("ingrese el dato a modificar");persona.Nombre = Console.ReadLine(); break;
+                case 3: Console.WriteLine("ingrese el dato a modificar");persona.Apellido = Console.ReadLine(); break;
+                case 4: Console.WriteLine("ingrese el dato a modificar");persona.Email = Console.ReadLine(); break;
+                case 5: Console.WriteLine("ingrese el dato a modificar");persona.Telefono = Console.ReadLine(); break;
+                case 6: ok = false; break;
+                default: Console.WriteLine("opcionno valida"); break;
+            }  
+        }
+         
         if (!validador.Validador(persona, out string mensajeError)) 
         {
             throw new Exception("no se pudo validar los datos");
@@ -158,7 +166,17 @@ public class RepositorioPersonaTXT : IRepositorioPersona
     public bool existeEmail(string mail)
     {
         bool encontro = false;
-        string? linea;
+        List <Persona>  lista = this.ListarPersonas();
+        Persona? persona = lista.Find(per => per.Email == mail);
+        if (persona == null)
+        {
+            Console.WriteLine("no se encontro");
+        }
+        else
+        {
+            encontro = true;
+        }
+        /*string? linea;
         using var sr = new StreamReader(_nomArch, true);
         while ((linea = sr.ReadLine()) != null && !encontro)
         {
@@ -169,7 +187,8 @@ public class RepositorioPersonaTXT : IRepositorioPersona
                 encontro = true;
             }
         }
-        sr.Dispose();
+        sr.Dispose();*/
+
         return encontro;
     }
     public bool existePersona(int id)
